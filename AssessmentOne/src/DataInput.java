@@ -10,15 +10,17 @@ public class DataInput {
 
     public void loadData() {
         // testing without having to repeatedly input results
-        Level5Grades.add(78);
-        Level5Grades.add(55);
-        Level5Grades.add(45);
         Level5Grades.add(72);
+        Level5Grades.add(85);
+        Level5Grades.add(58);
+        Level5Grades.add(64);
+        Level5Grades.add(79);
 
+        Level5Credits.add(15);
+        Level5Credits.add(15);
         Level5Credits.add(30);
         Level5Credits.add(30);
-        Level5Credits.add(60);
-        Level5Credits.add(120);
+        Level5Credits.add(30);
 
         Level6Grades.add(65);
         Level6Grades.add(45);

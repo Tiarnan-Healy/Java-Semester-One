@@ -5,7 +5,7 @@ public class Main {
         DataInput test = new DataInput();
         Scanner sc = new Scanner(System.in);
 
-        //test.Level5GradesInput();
+        // test.Level5GradesInput();
         // test.Level6GradesInput();
 
         test.loadData();
