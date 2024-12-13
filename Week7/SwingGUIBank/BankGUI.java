@@ -2,12 +2,10 @@ package Week7.SwingGUIBank;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-import javax.swing.plaf.FontUIResource;
-import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Locale;
+import java.util.ArrayList;
 
 public class BankGUI extends JFrame {
     private JPanel accountsPanel;
@@ -28,11 +26,30 @@ public class BankGUI extends JFrame {
     private JLabel accountNumberLabel;
     private JLabel depositAmountLabel;
     private JLabel withdrawAmountLabel;
+    private JTextArea console;
+
+    int index = 0;
+
+    static ArrayList<BankGUIDataStructure> accountList = new ArrayList<>();
+
+    public static void loadData() {
+        // Create some initial accounts and add them to the list
+        accountList.add(new BankGUIDataStructure("H Kane", "0123456", 0));
+        accountList.add(new BankGUIDataStructure("E Hayes", "1234567", 500));
+        accountList.add(new BankGUIDataStructure("B Mead", "2345678", 1000));
+        accountList.add(new BankGUIDataStructure("L Bronze", "3456789", 5000));
+        accountList.add(new BankGUIDataStructure("P Foden", "4567890", 200));
+    }
 
     public BankGUI(String title) {
         super(title);
 
-        $$$setupUI$$$();
+        $$$setupUI$$$(); // initialise GUI
+
+        loadData();
+
+        accountTextField.setText(accountList.get(index).getAccountNumber());
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
@@ -52,6 +69,31 @@ public class BankGUI extends JFrame {
             System.out.println("Invalid niput");
         }
 
+        viewButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                viewInformation();
+            }
+        });
+
+        nextButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                index++;
+                accountTextField.setText(accountList.get(index).getAccountNumber());
+                viewInformation();
+            }
+        });
+
+        previousButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                index--;
+                accountTextField.setText(accountList.get(index).getAccountNumber());
+                viewInformation();
+            }
+        });
+
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -61,9 +103,25 @@ public class BankGUI extends JFrame {
 
     }
 
+    public void viewInformation() {
+        String report = "";
+
+        report += "###Account Information###\n\n";
+        report += String.format("%10s %s %n", "Number:", accountList.get(index).getAccountNumber());
+        report += String.format("%10s %s %n", "Name:", accountList.get(index).getAccountName());
+        report += String.format("%10s %s %n", "Balance:", accountList.get(index).getAccountBalance());
+
+        console.setText(report);
+    }
+
+    private void viewButtonActionPerformed(ActionEvent e) {
+        viewInformation();
+    }
+
     public static void main(String[] args) {
         JFrame frame = new BankGUI("Bank GUI");
         frame.setVisible(true);
+
     }
 
     private void createUIComponents() {
@@ -142,6 +200,8 @@ public class BankGUI extends JFrame {
         quitButton = new JButton();
         quitButton.setText("Quit");
         mainPanel.add(quitButton, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        console = new JTextArea();
+        mainPanel.add(console, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
     }
 
     /**
