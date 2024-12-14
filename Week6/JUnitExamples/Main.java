@@ -10,6 +10,10 @@ public class Main {
         System.out.println("Welcome to the password tester.\nPlease enter your password:\t");
         String password = sc.next();
         ValidatePassword.isValidLowercase(password);
+        ValidatePassword.isValidDigit(password);
+        ValidatePassword.isValidLength(password);
+        ValidatePassword.isValidSpecial(password);
+        ValidatePassword.isValidUppercase(password);
         //testPasswordLength(password);
 
     }

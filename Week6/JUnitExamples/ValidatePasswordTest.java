@@ -28,6 +28,6 @@ public class ValidatePasswordTest {
 
     @Test
     void testPasswordSpecial() {
-        assertEquals(true, ValidatePassword.isValidSpecial("pass"));
+        assertEquals(true, ValidatePassword.isValidSpecial("pass?"));
     }
 }
