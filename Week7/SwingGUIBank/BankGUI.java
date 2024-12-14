@@ -101,6 +101,30 @@ public class BankGUI extends JFrame {
             }
         });
 
+        makeDepositButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int amount = Integer.parseInt(depositTextField.getText());
+                if (amount > 0) {
+                    deposit(amount);
+                } else {
+                    console.append("You cannot deposit less than £0.");
+                }
+            }
+        });
+
+        makeWithdrawalButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int amount = Integer.parseInt(withdrawTextField.getText());
+                if (amount > 0) {
+                    withdraw(amount);
+                } else {
+                    console.append("You cannot withdraw less than £0.");
+                }
+            }
+        });
+
     }
 
     public void viewInformation() {
@@ -112,6 +136,34 @@ public class BankGUI extends JFrame {
         report += String.format("%10s %s %n", "Balance:", accountList.get(index).getAccountBalance());
 
         console.setText(report);
+    }
+
+    private void deposit(int amount) {
+        double balance = accountList.get(index).getAccountBalance() + amount;
+        accountList.get(index).setAccountBalance(balance);
+
+        console.append(String.format("%nDeposit of £" + amount + " successful.\nNew Balance is £" +
+                 accountList.get(index).getFormattedBalance()));
+
+        depositTextField.setText("");
+    }
+
+    private void withdraw(int amount) {
+        double balance = accountList.get(index).getAccountBalance() - amount;
+        accountList.get(index).setAccountBalance(balance);
+
+        console.append(String.format("%nWithdrawal of £" + amount + " successful. %nNew Balance is £" +
+                accountList.get(index).getFormattedBalance()));
+
+        withdrawTextField.setText("");
+    }
+
+    private void depositButtonActionPerformed(ActionEvent e) {
+        console.setText("### Deposit Operation ###\n");
+        int amount = Integer.parseInt(depositTextField.getText());
+        if (amount > 0) {
+            deposit(amount);
+        }
     }
 
     private void viewButtonActionPerformed(ActionEvent e) {
