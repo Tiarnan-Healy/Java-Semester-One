@@ -12,11 +12,23 @@ public class Level5Data {
     static ArrayList<Integer> Level5Grades = new ArrayList<>();
     static ArrayList<Integer> Level5Credits = new ArrayList<>();
 
+    public static java.util.ArrayList<Integer> getLevel5Grades() {
+        return Level5Grades;
+    }
 
-    // Level 5 average calculation. Copied and edited from my previous work.
-    public void Level5GradesInput() {
-        //Level5Credits.add(Integer.parseInt(getLevel5Grade1.getText()));
-        }
+    public static ArrayList<Integer> getLevel5Credits() {
+        return Level5Credits;
+    }
+
+    // setters. Can use these for testing logic as well
+    public static void setLevel5Grades(ArrayList<Integer> level5Grades) {
+        Level5Grades = level5Grades;
+    }
+
+    public static void setLevel5Credits(ArrayList<Integer> level5Credits) {
+        Level5Credits = level5Credits;
+    }
+
 }
 
 

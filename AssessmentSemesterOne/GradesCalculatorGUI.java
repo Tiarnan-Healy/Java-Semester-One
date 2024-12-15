@@ -2,6 +2,8 @@ package AssessmentSemesterOne;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GradesCalculatorGUI extends JFrame {
     // Automatically populated from drag and drop on the .form file
@@ -30,14 +32,6 @@ public class GradesCalculatorGUI extends JFrame {
     private JTextField level5Credits6;
     private JTextField level5Credits7;
     private JTextField level5Credits8;
-    private JTextField level6Credits1;
-    private JTextField level6Credits2;
-    private JTextField level6Credits3;
-    private JTextField level6Credits4;
-    private JTextField level6Credits5;
-    private JTextField level6Credits6;
-    private JTextField level6Credits7;
-    private JTextField level6Credits8;
     private JTextField level6Grade1;
     private JTextField level6Grade2;
     private JTextField level6Grade3;
@@ -46,6 +40,14 @@ public class GradesCalculatorGUI extends JFrame {
     private JTextField level6Grade6;
     private JTextField level6Grade7;
     private JTextField level6Grade8;
+    private JTextField level6Credits1;
+    private JTextField level6Credits2;
+    private JTextField level6Credits3;
+    private JTextField level6Credits4;
+    private JTextField level6Credits5;
+    private JTextField level6Credits6;
+    private JTextField level6Credits7;
+    private JTextField level6Credits8;
     private JTextField evenWeightingTextField;
     private JTextField weightedTextField;
     private JTextField markProfilingTextField;
@@ -56,23 +58,36 @@ public class GradesCalculatorGUI extends JFrame {
     private JLabel markProfilingLabel;
     private JTextField level6Average;
     private JLabel level6AverageLabel;
+    private JButton calculateButton;
+
+    public Level5Data level5Data = new Level5Data();
+    public Level6Data level6Data = new Level6Data();
+    public AverageCalculations averageCalculations = new AverageCalculations(level5Data, level6Data);
 
     public GradesCalculatorGUI(String title) {
         super(title);
 
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
+
+        calculateButton.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               Level5DataCollection();
+               Level6DataCollection();
+
+           }
+        });
+
+
     }
-
-
 
 
     // Adding input from user to ArrayLists
     // Collecting all data. Will initialise all relevant input fields to 0, so I get no null data.
     // I think this will work around issues that would come up if people filled out boxes while leaving gaps in entry.
-    public void Level5DataCollection () {
+    public void Level5DataCollection() {
         // Clearing old data
         Level5Data.Level5Credits.clear();
         Level5Data.Level5Grades.clear();
@@ -98,7 +113,7 @@ public class GradesCalculatorGUI extends JFrame {
         Level5Data.Level5Credits.add(numberToParse(level5Credits8));
     }
 
-    public void Level6DataCollection () {
+    public void Level6DataCollection() {
         Level6Data.Level6Grades.clear();
         Level6Data.Level6Credits.clear();
 
@@ -125,6 +140,7 @@ public class GradesCalculatorGUI extends JFrame {
 
     // Setting input to 0 with a try catch instead of defaulting all values to 0
     // Credit values of 0 will be discarded from the average calculations
+    // I will try to alter things later to account for numbers over 100 and non integers.
     public int numberToParse(JTextField textField) {
         String text = textField.getText();
         try {
@@ -133,6 +149,15 @@ public class GradesCalculatorGUI extends JFrame {
             return 0;
         }
     }
+
+    public void showResults() {
+        // Call the calculations with user data
+        double level5Average = averageCalculations.Level5Average();
+        double level6Average = averageCalculations.Level6Average();
+        double equalAverage = averageCalculations.EqualAverage();
+        double weightedAverage = averageCalculations.WeightedAverage();
+    }
+
 
     // using Swing in IntelliJ, have to add this in manually
     public static void main(String[] args) {
