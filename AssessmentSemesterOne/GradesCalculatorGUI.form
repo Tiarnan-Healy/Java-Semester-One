@@ -595,7 +595,7 @@
               <text value="Level 5 Average"/>
             </properties>
           </component>
-          <component id="7ba21" class="javax.swing.JTextField" binding="level5Average">
+          <component id="7ba21" class="javax.swing.JTextField" binding="level5AverageTextField">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="50" height="-1"/>
@@ -621,7 +621,7 @@
               <text value="Level 6 Average"/>
             </properties>
           </component>
-          <component id="84d1f" class="javax.swing.JTextField" binding="level6Average">
+          <component id="84d1f" class="javax.swing.JTextField" binding="level6AverageTextField">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="50" height="-1"/>
