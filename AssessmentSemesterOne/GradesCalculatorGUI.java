@@ -160,6 +160,8 @@ public class GradesCalculatorGUI extends JFrame {
         evenWeightingTextField.setText(String.format(String.valueOf(equalAverage)));
         double weightedAverage = averageCalculations.WeightedAverage();
         weightedTextField.setText(String.format(String.valueOf(weightedAverage)));
+        String markProfiling = averageCalculations.MarkProfiling();
+        markProfilingTextField.setText(String.format(markProfiling));
     }
 
 
