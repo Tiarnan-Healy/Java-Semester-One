@@ -78,24 +78,24 @@ public class GradesCalculatorGUI extends JFrame {
         Level5Data.Level5Grades.clear();
 
         // Adding level 5 grades from the form into the Level5Data ArrayList
-        Level5Data.Level5Grades.add(Integer.parseInt(level5Grade1.getText()));
-        Level5Data.Level5Grades.add(Integer.parseInt(level5Grade2.getText()));
-        Level5Data.Level5Grades.add(Integer.parseInt(level5Grade3.getText()));
-        Level5Data.Level5Grades.add(Integer.parseInt(level5Grade4.getText()));
-        Level5Data.Level5Grades.add(Integer.parseInt(level5Grade5.getText()));
-        Level5Data.Level5Grades.add(Integer.parseInt(level5Grade6.getText()));
-        Level5Data.Level5Grades.add(Integer.parseInt(level5Grade7.getText()));
-        Level5Data.Level5Grades.add(Integer.parseInt(level5Grade8.getText()));
+        Level5Data.Level5Grades.add(numberToParse(level5Grade1));
+        Level5Data.Level5Grades.add(numberToParse(level5Grade2));
+        Level5Data.Level5Grades.add(numberToParse(level5Grade3));
+        Level5Data.Level5Grades.add(numberToParse(level5Grade4));
+        Level5Data.Level5Grades.add(numberToParse(level5Grade5));
+        Level5Data.Level5Grades.add(numberToParse(level5Grade6));
+        Level5Data.Level5Grades.add(numberToParse(level5Grade7));
+        Level5Data.Level5Grades.add(numberToParse(level5Grade8));
 
         // Adding level 5 credits
-        Level5Data.Level5Credits.add(Integer.parseInt(level5Credits1.getText()));
-        Level5Data.Level5Credits.add(Integer.parseInt(level5Credits2.getText()));
-        Level5Data.Level5Credits.add(Integer.parseInt(level5Credits3.getText()));
-        Level5Data.Level5Credits.add(Integer.parseInt(level5Credits4.getText()));
-        Level5Data.Level5Credits.add(Integer.parseInt(level5Credits5.getText()));
-        Level5Data.Level5Credits.add(Integer.parseInt(level5Credits6.getText()));
-        Level5Data.Level5Credits.add(Integer.parseInt(level5Credits7.getText()));
-        Level5Data.Level5Credits.add(Integer.parseInt(level5Credits8.getText()));
+        Level5Data.Level5Credits.add(numberToParse(level5Credits1));
+        Level5Data.Level5Credits.add(numberToParse(level5Credits2));
+        Level5Data.Level5Credits.add(numberToParse(level5Credits3));
+        Level5Data.Level5Credits.add(numberToParse(level5Credits4));
+        Level5Data.Level5Credits.add(numberToParse(level5Credits5));
+        Level5Data.Level5Credits.add(numberToParse(level5Credits6));
+        Level5Data.Level5Credits.add(numberToParse(level5Credits7));
+        Level5Data.Level5Credits.add(numberToParse(level5Credits8));
     }
 
     public void Level6DataCollection () {
@@ -103,26 +103,36 @@ public class GradesCalculatorGUI extends JFrame {
         Level6Data.Level6Credits.clear();
 
         // level 6 grades
-        Level6Data.Level6Grades.add(Integer.parseInt(level6Grade1.getText()));
-        Level6Data.Level6Grades.add(Integer.parseInt(level6Grade2.getText()));
-        Level6Data.Level6Grades.add(Integer.parseInt(level6Grade3.getText()));
-        Level6Data.Level6Grades.add(Integer.parseInt(level6Grade4.getText()));
-        Level6Data.Level6Grades.add(Integer.parseInt(level6Grade5.getText()));
-        Level6Data.Level6Grades.add(Integer.parseInt(level6Grade6.getText()));
-        Level6Data.Level6Grades.add(Integer.parseInt(level6Grade7.getText()));
-        Level6Data.Level6Grades.add(Integer.parseInt(level6Grade8.getText()));
+        Level6Data.Level6Grades.add(numberToParse(level6Grade1));
+        Level6Data.Level6Grades.add(numberToParse(level6Grade2));
+        Level6Data.Level6Grades.add(numberToParse(level6Grade3));
+        Level6Data.Level6Grades.add(numberToParse(level6Grade4));
+        Level6Data.Level6Grades.add(numberToParse(level6Grade5));
+        Level6Data.Level6Grades.add(numberToParse(level6Grade6));
+        Level6Data.Level6Grades.add(numberToParse(level6Grade7));
+        Level6Data.Level6Grades.add(numberToParse(level6Grade8));
 
         // Level 6 credits
-        Level6Data.Level6Credits.add(Integer.parseInt(level6Credits1.getText()));
-        Level6Data.Level6Credits.add(Integer.parseInt(level6Credits2.getText()));
-        Level6Data.Level6Credits.add(Integer.parseInt(level6Credits3.getText()));
-        Level6Data.Level6Credits.add(Integer.parseInt(level6Credits4.getText()));
-        Level6Data.Level6Credits.add(Integer.parseInt(level6Credits5.getText()));
-        Level6Data.Level6Credits.add(Integer.parseInt(level6Credits6.getText()));
-        Level6Data.Level6Credits.add(Integer.parseInt(level6Credits7.getText()));
-        Level6Data.Level6Credits.add(Integer.parseInt(level6Credits8.getText()));
+        Level6Data.Level6Credits.add(numberToParse(level6Credits1));
+        Level6Data.Level6Credits.add(numberToParse(level6Credits2));
+        Level6Data.Level6Credits.add(numberToParse(level6Credits3));
+        Level6Data.Level6Credits.add(numberToParse(level6Credits4));
+        Level6Data.Level6Credits.add(numberToParse(level6Credits5));
+        Level6Data.Level6Credits.add(numberToParse(level6Credits6));
+        Level6Data.Level6Credits.add(numberToParse(level6Credits7));
+        Level6Data.Level6Credits.add(numberToParse(level6Credits8));
     }
 
+    // Setting input to 0 with a try catch instead of defaulting all values to 0
+    // Credit values of 0 will be discarded from the average calculations
+    public int numberToParse(JTextField textField) {
+        String text = textField.getText();
+        try {
+            return Integer.parseInt(text);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
 
     // using Swing in IntelliJ, have to add this in manually
     public static void main(String[] args) {
