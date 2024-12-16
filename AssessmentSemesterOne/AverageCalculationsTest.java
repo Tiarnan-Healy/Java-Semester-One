@@ -1,66 +1,19 @@
 package AssessmentSemesterOne;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
 public class AverageCalculationsTest {
-    static Stream<Arguments> testDataA() {
+    private AssessmentSemesterOne.Level5Data Level5Data;
+    private AssessmentSemesterOne.Level6Data Level6Data;
+
+    // Scenario data from "Degree Classification Calculator
+    // - Validation Rules and Test Cases" pdf provided on Moodle
+    // Scenario 1
+    private Level5Data test5A() {
         Level5Data testData5A = new Level5Data();
-
-        // test credits
-        ArrayList<Integer> testCredits5A = new ArrayList<>();
-        testCredits5A.add(20);
-        testCredits5A.add(20);
-        testCredits5A.add(20);
-        testCredits5A.add(20);
-        testCredits5A.add(20);
-        testCredits5A.add(20);
-        testData5A.setLevel5Credits(testCredits5A);
-
-        // test grades
-        ArrayList<Integer> testGrades5A = new ArrayList<>();
-        testGrades5A.add(78);
-        testGrades5A.add(75);
-        testGrades5A.add(78);
-        testGrades5A.add(75);
-        testGrades5A.add(78);
-        testGrades5A.add(68);
-        testData5A.setLevel5Grades(testGrades5A);
-
-        Level6Data testData6A = new Level6Data();
-        // test credits
-        ArrayList<Integer> testCredits6A = new ArrayList<>();
-        testCredits6A.add(20);
-        testCredits6A.add(20);
-        testCredits6A.add(20);
-        testCredits6A.add(20);
-        testCredits6A.add(20);
-        testCredits6A.add(20);
-        testData6A.setLevel6Credits(testCredits6A);
-
-        // test grades
-        ArrayList<Integer> testGrades6A = new ArrayList<>();
-        testGrades6A.add(68);
-        testGrades6A.add(65);
-        testGrades6A.add(62);
-        testGrades6A.add(68);
-        testGrades6A.add(65);
-        testGrades6A.add(62);
-        testData6A.setLevel6Grades(testGrades6A);
-
-        return Stream.of(
-                Arguments.of(testData5A, testData6A, 70.17)
-        );
-    }
-
-    private Level5Data test5B() {
-        Level5Data testData5B = new Level5Data();
 
         // test credits
         ArrayList<Integer> testCredits5 = new ArrayList<>();
@@ -70,7 +23,7 @@ public class AverageCalculationsTest {
         testCredits5.add(20);
         testCredits5.add(20);
         testCredits5.add(20);
-        testData5B.setLevel5Credits(testCredits5);
+        testData5A.setLevel5Credits(testCredits5);
 
         // test grades
         ArrayList<Integer> testGrades5 = new ArrayList<>();
@@ -80,13 +33,12 @@ public class AverageCalculationsTest {
         testGrades5.add(75);
         testGrades5.add(78);
         testGrades5.add(68);
-        testData5B.setLevel5Grades(testGrades5);
+        testData5A.setLevel5Grades(testGrades5);
 
-        return testData5B;
+        return testData5A;
     }
-
-    private Level6Data test6B() {
-        Level6Data testData6B = new Level6Data();
+    private Level6Data test6A() {
+        Level6Data testData6a = new Level6Data();
         // test credits
         ArrayList<Integer> testCredits6 = new ArrayList<>();
         testCredits6.add(20);
@@ -95,7 +47,7 @@ public class AverageCalculationsTest {
         testCredits6.add(20);
         testCredits6.add(20);
         testCredits6.add(20);
-        testData6B.setLevel6Credits(testCredits6);
+        testData6a.setLevel6Credits(testCredits6);
 
         // test grades
         ArrayList<Integer> testGrades6 = new ArrayList<>();
@@ -105,29 +57,208 @@ public class AverageCalculationsTest {
         testGrades6.add(68);
         testGrades6.add(65);
         testGrades6.add(62);
+        testData6a.setLevel6Grades(testGrades6);
+
+        return testData6a;
+    }
+
+    // Scenario 2
+    private Level5Data test5B() {
+        Level5Data testData5B = new Level5Data();
+
+        // test credits
+        ArrayList<Integer> testCredits5 = new ArrayList<>();
+        testCredits5.add(30);
+        testCredits5.add(30);
+        testCredits5.add(30);
+        testCredits5.add(30);
+        testData5B.setLevel5Credits(testCredits5);
+
+        // test grades
+        ArrayList<Integer> testGrades5 = new ArrayList<>();
+        testGrades5.add(68);
+        testGrades5.add(65);
+        testGrades5.add(62);
+        testGrades5.add(68);
+        testData5B.setLevel5Grades(testGrades5);
+
+        return testData5B;
+    }
+    private Level6Data test6B() {
+        Level6Data testData6B = new Level6Data();
+        // test credits
+        ArrayList<Integer> testCredits6 = new ArrayList<>();
+        testCredits6.add(30);
+        testCredits6.add(30);
+        testCredits6.add(30);
+        testCredits6.add(30);
+        testData6B.setLevel6Credits(testCredits6);
+
+        // test grades
+        ArrayList<Integer> testGrades6 = new ArrayList<>();
+        testGrades6.add(78);
+        testGrades6.add(75);
+        testGrades6.add(68);
+        testGrades6.add(68);
         testData6B.setLevel6Grades(testGrades6);
 
         return testData6B;
     }
 
-//    private double testEvenAverage(Level5Data x, Level6Data y) {
-//        this.Level5Data = x;
-//        this.Level6Data = y;
-//
-//        double evenResult = testCalculationA.EqualAverage();
-//        return evenResult;
-//    }
+    // Scenario 3
+    private Level5Data test5C() {
+        Level5Data testData5C = new Level5Data();
 
-    @ParameterizedTest
+        // test credits
+        ArrayList<Integer> testCredits5 = new ArrayList<>();
+        testCredits5.add(15);
+        testCredits5.add(15);
+        testCredits5.add(30);
+        testCredits5.add(30);
+        testCredits5.add(30);
+        testData5C.setLevel5Credits(testCredits5);
 
-    @MethodSource("testDataA")
-    public void evenAverageA(Level5Data test5A, Level6Data test6A) {
-        AverageCalculations testCalculationA = new AverageCalculations(test5A, test6A);
-        double evenResult = testCalculationA.EqualAverage();
-        Assertions.assertEquals("70.17", String.format("%.2f", evenResult));
+        // test grades
+        ArrayList<Integer> testGrades5 = new ArrayList<>();
+        testGrades5.add(55);
+        testGrades5.add(52);
+        testGrades5.add(55);
+        testGrades5.add(52);
+        testGrades5.add(55);
+        testData5C.setLevel5Grades(testGrades5);
+
+        return testData5C;
+    }
+    private Level6Data test6C() {
+        Level6Data testData6C = new Level6Data();
+        // test credits
+        ArrayList<Integer> testCredits6 = new ArrayList<>();
+        testCredits6.add(15);
+        testCredits6.add(15);
+        testCredits6.add(30);
+        testCredits6.add(30);
+        testCredits6.add(30);
+        testData6C.setLevel6Credits(testCredits6);
+
+        // test grades
+        ArrayList<Integer> testGrades6 = new ArrayList<>();
+        testGrades6.add(55);
+        testGrades6.add(52);
+        testGrades6.add(68);
+        testGrades6.add(65);
+        testGrades6.add(62);
+        testData6C.setLevel6Grades(testGrades6);
+
+        return testData6C;
     }
 
-//    AverageCalculations testCalculationA = new AverageCalculations(test5A(), test6A());
+    // Scenario 4
+    private Level5Data test5D() {
+        Level5Data testData5D = new Level5Data();
+
+        // test credits
+        ArrayList<Integer> testCredits5 = new ArrayList<>();
+        testCredits5.add(0);
+        testData5D.setLevel5Credits(testCredits5);
+
+        // test grades
+        ArrayList<Integer> testGrades5 = new ArrayList<>();
+        testGrades5.add(0);
+        testData5D.setLevel5Grades(testGrades5);
+
+        return testData5D;
+    }
+    private Level6Data test6D() {
+        Level6Data testData6D = new Level6Data();
+
+        // test credits
+        ArrayList<Integer> testCredits6 = new ArrayList<>();
+        testCredits6.add(60);
+        testCredits6.add(30);
+        testCredits6.add(30);
+        testData6D.setLevel6Credits(testCredits6);
+
+        // test grades
+        ArrayList<Integer> testGrades6 = new ArrayList<>();
+        testGrades6.add(58);
+        testGrades6.add(58);
+        testGrades6.add(68);
+        testData6D.setLevel6Grades(testGrades6);
+
+        return testData6D;
+    }
+
+    // Scenario 5
+    private Level6Data test6E() {
+        Level6Data testData6E = new Level6Data();
+
+        // test credits
+        ArrayList<Integer> testCredits6 = new ArrayList<>();
+        testCredits6.add(30);
+        testCredits6.add(30);
+        testCredits6.add(30);
+        testCredits6.add(30);
+        testData6E.setLevel6Credits(testCredits6);
+
+        // test grades
+        ArrayList<Integer> testGrades6 = new ArrayList<>();
+        testGrades6.add(68);
+        testGrades6.add(65);
+        testGrades6.add(62);
+        testGrades6.add(42);
+        testData6E.setLevel6Grades(testGrades6);
+
+        return testData6E;
+    }
+
+
+    private double testEvenAverage(Level5Data x, Level6Data y) {
+        this.Level5Data = x;
+        this.Level6Data = y;
+
+        double evenResult = testCalculationA.EqualAverage();
+        return evenResult;
+    }
+
+    private double testLevel6Average(Level6Data y) {
+        this.Level6Data = y;
+
+        double advanceEntryResult = testCalculationA.Level6Average();
+        return advanceEntryResult;
+    }
+
+    @Test
+            public void evenAverageA() {
+                double evenResult = testEvenAverage(test5A(), test6A());
+                Assertions.assertEquals("70.17", String.format("%.2f", evenResult));
+    }
+
+    @Test
+            public void evenAverageB() {
+                double evenResult = testEvenAverage(test5B(), test6B());
+                Assertions.assertEquals("69.00", String.format("%.2f", evenResult));
+    }
+
+    @Test
+            public void evenAverageC() {
+                double evenResult = testEvenAverage(test5C(), test6C());
+                Assertions.assertEquals("58.00", String.format("%.2f", evenResult));
+    }
+
+    @Test
+            public void evenAverageD() {
+                double evenResult = testLevel6Average(test6D());
+                Assertions.assertEquals("60.50", String.format("%.2f", evenResult));
+    }
+
+    @Test
+            public void evenAverageE() {
+                double evenResult = testLevel6Average(test6E());
+                Assertions.assertEquals("59.25", String.format("%.2f", evenResult));
+    }
+
+
+    AverageCalculations testCalculationA = new AverageCalculations(test5A(), test6A());
 //        // double evenResult = testCalculationA.EqualAverage();
 //        // String.format("%.2f", evenResult);
 //        // double weightedResult = testCalculationA.WeightedAverage();

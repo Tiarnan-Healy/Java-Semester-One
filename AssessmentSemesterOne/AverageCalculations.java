@@ -3,8 +3,8 @@ package AssessmentSemesterOne;
 import java.util.ArrayList;
 
 public class AverageCalculations {
-    private static Level5Data data5;
-    private static Level6Data data6;
+    private Level5Data data5;
+    private Level6Data data6;
 
     // Average grade calculation, weighted evenly
     public AverageCalculations(Level5Data data5, Level6Data data6) {
@@ -12,7 +12,7 @@ public class AverageCalculations {
         this.data6 = data6;
     }
 
-    public static double Level5Average() {
+    public double Level5Average() {
         double averageGrade = 0;
         double totalCredits = 0;
         int totalGrade = 0;
@@ -40,7 +40,7 @@ public class AverageCalculations {
         return averageGrade;
     }
 
-    public static double Level6Average() {
+    public double Level6Average() {
         double averageGrade = 0;
         double totalCredits = 0;
         int totalGrade = 0;
@@ -63,11 +63,11 @@ public class AverageCalculations {
         return averageGrade;
     }
 
-    public static double EqualAverage() {
+    public double EqualAverage() {
         return (Level5Average() + Level6Average()) / 2;
     }
 
-    public static double WeightedAverage() {
+    public double WeightedAverage() {
         return (Level5Average() + Level6Average() + Level6Average()) / 3;
     }
 
@@ -86,7 +86,7 @@ public class AverageCalculations {
     // Add also from 2.1 the second time and so on.
     // Break the loop and award is determined by the lowest mark needed to cross 50%
 
-    public static String MarkProfiling() {
+    public String MarkProfiling() {
         String gradeClassification = "";
         ArrayList<Integer> grades5 = data5.getLevel5Grades();
         ArrayList<Integer> credits5 = data5.getLevel5Credits();
