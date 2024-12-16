@@ -153,21 +153,6 @@ public class AverageCalculationsTest {
     }
 
     // Scenario 4
-    private Level5Data test5D() {
-        Level5Data testData5D = new Level5Data();
-
-        // test credits
-        ArrayList<Integer> testCredits5 = new ArrayList<>();
-        testCredits5.add(0);
-        testData5D.setLevel5Credits(testCredits5);
-
-        // test grades
-        ArrayList<Integer> testGrades5 = new ArrayList<>();
-        testGrades5.add(0);
-        testData5D.setLevel5Grades(testGrades5);
-
-        return testData5D;
-    }
     private Level6Data test6D() {
         Level6Data testData6D = new Level6Data();
 
@@ -211,7 +196,7 @@ public class AverageCalculationsTest {
         return testData6E;
     }
 
-
+    // Method A test
     private double testEvenAverage(Level5Data x, Level6Data y) {
         this.Level5Data = x;
         this.Level6Data = y;
@@ -220,6 +205,17 @@ public class AverageCalculationsTest {
         return evenResult;
     }
 
+    // Method B test
+    private double testWeightedAverage(Level5Data x, Level6Data y) {
+        this.Level5Data = x;
+        this.Level6Data = y;
+
+        double weightedResult = testCalculationA.WeightedAverage();
+        return weightedResult;
+    }
+
+
+    // Method C test
     private double testLevel6Average(Level6Data y) {
         this.Level6Data = y;
 
@@ -227,31 +223,47 @@ public class AverageCalculationsTest {
         return advanceEntryResult;
     }
 
-    @Test
+    @Test // Method A Average 1 for Scenario 1
             public void evenAverageA() {
                 double evenResult = testEvenAverage(test5A(), test6A());
                 Assertions.assertEquals("70.17", String.format("%.2f", evenResult));
     }
 
-    @Test
+    @Test // Method B Average 2 for Scenario 1
+            public void weightedAverageA() {
+                double weightedResult = testWeightedAverage(test5A(), test6A());
+                Assertions.assertEquals("68.44", String.format("%.2f", weightedResult));
+    }
+
+    @Test // Method A Average 1 for Scenario 2
             public void evenAverageB() {
                 double evenResult = testEvenAverage(test5B(), test6B());
                 Assertions.assertEquals("69.00", String.format("%.2f", evenResult));
     }
 
-    @Test
+    @Test // Method B Average 2 for Scenario 2
+            public void weightedAverageB() {
+                double weightedResult = testWeightedAverage(test5B(), test6B());
+                Assertions.assertEquals("70.08", String.format("%.2f", weightedResult));
+    }
+    @Test // Method A Average 1 for Scenario 3
             public void evenAverageC() {
                 double evenResult = testEvenAverage(test5C(), test6C());
                 Assertions.assertEquals("58.00", String.format("%.2f", evenResult));
     }
 
-    @Test
+    @Test // Method B Average 2 for Scenario 3
+            public void weightedAverageC() {
+                double weightedResult = testWeightedAverage(test5C(), test6C());
+                Assertions.assertEquals("59.38", String.format("%.2f", weightedResult));
+    }
+    @Test // Method C Average for Scenario 4
             public void evenAverageD() {
                 double evenResult = testLevel6Average(test6D());
                 Assertions.assertEquals("60.50", String.format("%.2f", evenResult));
     }
 
-    @Test
+    @Test // Method C Average for Scenario 5
             public void evenAverageE() {
                 double evenResult = testLevel6Average(test6E());
                 Assertions.assertEquals("59.25", String.format("%.2f", evenResult));
