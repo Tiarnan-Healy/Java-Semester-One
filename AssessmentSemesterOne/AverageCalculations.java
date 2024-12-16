@@ -134,13 +134,13 @@ public class AverageCalculations {
         earnedCreditsThird += earnedCreditsTwoTwo;
 
         if (earnedCreditsFirst >= totalCredits / 2){
-            gradeClassification = "First";
+            gradeClassification = "1.1";
         } else if (earnedCreditsTwoOne >= totalCredits / 2){
-            gradeClassification = "Two One";
+            gradeClassification = "2.1";
         } else if (earnedCreditsTwoTwo >= totalCredits / 2) {
-            gradeClassification = "Two Two";
+            gradeClassification = "2.2";
         } else if (earnedCreditsThird >= totalCredits / 2) {
-            gradeClassification = "Third";
+            gradeClassification = "3";
         } else {
             gradeClassification = "Fail";
         }

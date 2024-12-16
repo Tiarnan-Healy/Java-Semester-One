@@ -86,7 +86,7 @@ public class GradesCalculatorGUI extends JFrame {
 
     // Adding input from user to ArrayLists
     // Collecting all data. Will initialise all relevant input fields to 0, so I get no null data.
-    // I think this will work around issues that would come up if people filled out boxes while leaving gaps in entry.
+    // I think this will work around issues that would come up if people filled out boxes in an unexpected order.
     public void Level5DataCollection() {
         // Clearing old data
         Level5Data.Level5Credits.clear();
