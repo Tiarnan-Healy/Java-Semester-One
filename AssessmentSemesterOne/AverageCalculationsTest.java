@@ -153,6 +153,21 @@ public class AverageCalculationsTest {
     }
 
     // Scenario 4
+    private Level5Data test5D() {
+        Level5Data testData5D = new Level5Data();
+
+        // test credits
+        ArrayList<Integer> testCredits5 = new ArrayList<>();
+        testCredits5.add(0);
+        testData5D.setLevel5Credits(testCredits5);
+
+        // test grades
+        ArrayList<Integer> testGrades5 = new ArrayList<>();
+        testGrades5.add(0);
+        testData5D.setLevel5Grades(testGrades5);
+
+        return testData5D;
+    }
     private Level6Data test6D() {
         Level6Data testData6D = new Level6Data();
 
@@ -174,6 +189,21 @@ public class AverageCalculationsTest {
     }
 
     // Scenario 5
+    private Level5Data test5E() {
+        Level5Data testData5E = new Level5Data();
+
+        // test credits
+        ArrayList<Integer> testCredits5 = new ArrayList<>();
+        testCredits5.add(0);
+        testData5E.setLevel5Credits(testCredits5);
+
+        // test grades
+        ArrayList<Integer> testGrades5 = new ArrayList<>();
+        testGrades5.add(0);
+        testData5E.setLevel5Grades(testGrades5);
+
+        return testData5E;
+    }
     private Level6Data test6E() {
         Level6Data testData6E = new Level6Data();
 
@@ -214,7 +244,6 @@ public class AverageCalculationsTest {
         return weightedResult;
     }
 
-
     // Method C test
     private double testLevel6Average(Level6Data y) {
         this.Level6Data = y;
@@ -222,6 +251,16 @@ public class AverageCalculationsTest {
         double advanceEntryResult = testCalculationA.Level6Average();
         return advanceEntryResult;
     }
+
+    // Method D test
+    private String testMarkProfiling(Level5Data x, Level6Data y) {
+        this.Level5Data = x;
+        this.Level6Data = y;
+
+        String markProfilingResult = testCalculationA.MarkProfiling();
+        return markProfilingResult;
+    }
+
 
     @Test // Method A Average 1 for Scenario 1
             public void evenAverageA() {
@@ -235,6 +274,12 @@ public class AverageCalculationsTest {
                 Assertions.assertEquals("68.44", String.format("%.2f", weightedResult));
     }
 
+    @Test // Method D Profile Mark Classification for Scenario 1
+            public void markProfilingA() {
+                String markProfilingResult = testMarkProfiling(test5A(), test6A());
+                Assertions.assertEquals("2.1", markProfilingResult);
+    }
+
     @Test // Method A Average 1 for Scenario 2
             public void evenAverageB() {
                 double evenResult = testEvenAverage(test5B(), test6B());
@@ -246,6 +291,13 @@ public class AverageCalculationsTest {
                 double weightedResult = testWeightedAverage(test5B(), test6B());
                 Assertions.assertEquals("70.08", String.format("%.2f", weightedResult));
     }
+
+    @Test // Method D Profile Mark Classification for Scenario 2
+            public void markProfilingB() {
+                String markProfilingResult = testMarkProfiling(test5B(), test6B());
+                Assertions.assertEquals("2.1", markProfilingResult);
+    }
+
     @Test // Method A Average 1 for Scenario 3
             public void evenAverageC() {
                 double evenResult = testEvenAverage(test5C(), test6C());
@@ -257,16 +309,35 @@ public class AverageCalculationsTest {
                 double weightedResult = testWeightedAverage(test5C(), test6C());
                 Assertions.assertEquals("59.38", String.format("%.2f", weightedResult));
     }
+
+    @Test // Method D Profile Mark Classification for Scenario 3
+            public void markProfilingC() {
+                String markProfilingResult = testMarkProfiling(test5C(), test6C());
+                Assertions.assertEquals("2.1", markProfilingResult);
+    }
+
     @Test // Method C Average for Scenario 4
             public void evenAverageD() {
                 double evenResult = testLevel6Average(test6D());
                 Assertions.assertEquals("60.50", String.format("%.2f", evenResult));
     }
 
+    @Test // Method D Profile Mark Classification for Scenario 1
+            public void markProfilingD() {
+                String markProfilingResult = testMarkProfiling(test5D(), test6D());
+                Assertions.assertEquals("2.2", markProfilingResult);
+    }
+
     @Test // Method C Average for Scenario 5
             public void evenAverageE() {
                 double evenResult = testLevel6Average(test6E());
                 Assertions.assertEquals("59.25", String.format("%.2f", evenResult));
+    }
+
+    @Test // Method D Profile Mark Classification for Scenario 1
+            public void markProfilingE() {
+                String markProfilingResult = testMarkProfiling(test5E(), test6E());
+                Assertions.assertEquals("2.1", markProfilingResult);
     }
 
 

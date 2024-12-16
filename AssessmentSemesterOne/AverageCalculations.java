@@ -101,7 +101,7 @@ public class AverageCalculations {
 
 
         for (int i = 0; i < grades5.size(); i++) {
-            totalCredits += grades5.get(i);
+            totalCredits += credits5.get(i);
             if (grades5.get(i) >= 70) {
                 earnedCreditsFirst += credits5.get(i);
             } else if (grades5.get(i) >= 60 && grades5.get(i) < 70) {
@@ -115,15 +115,15 @@ public class AverageCalculations {
         }
 
         for (int i = 0; i < grades6.size(); i++ ) {
-            totalCredits += grades6.get(i);
+            totalCredits += (2 * credits6.get(i));
             if (grades6.get(i) >= 70) {
-                earnedCreditsFirst += credits6.get(i);
+                earnedCreditsFirst += (2 * credits6.get(i));
             } else if (grades6.get(i) >= 60 && grades6.get(i) < 70) {
-                earnedCreditsTwoOne += credits6.get(i);
+                earnedCreditsTwoOne += (2 * credits6.get(i));
             } else if (grades6.get(i) >= 50 && grades6.get(i) < 60) {
-                earnedCreditsTwoTwo += credits6.get(i);
+                earnedCreditsTwoTwo += (2 * credits6.get(i));
             } else if (grades6.get(i) >= 40 && grades6.get(i) < 50) {
-                earnedCreditsThird += credits6.get(i);
+                earnedCreditsThird += (2 * credits6.get(i));
             }
         }
 
@@ -134,7 +134,7 @@ public class AverageCalculations {
         earnedCreditsThird += earnedCreditsTwoTwo;
 
         if (earnedCreditsFirst >= totalCredits / 2){
-            gradeClassification = "1.1";
+            gradeClassification = "1";
         } else if (earnedCreditsTwoOne >= totalCredits / 2){
             gradeClassification = "2.1";
         } else if (earnedCreditsTwoTwo >= totalCredits / 2) {
