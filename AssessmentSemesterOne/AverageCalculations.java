@@ -151,18 +151,48 @@ public class AverageCalculations {
 
     public String overallClassification() {
         String gradeClassification = "";
-        if (EqualAverage() >= 69.5 || WeightedAverage() >= 69.5 || Objects.equals(MarkProfiling(), "1")) {
-            gradeClassification = "1";
-        } else if (EqualAverage() >= 59.5 || WeightedAverage() >= 59.5 || Objects.equals(MarkProfiling(), "2.1")) {
-            gradeClassification = "2.1";
-        } else if (EqualAverage() >= 49.5 || WeightedAverage() >= 49.5 || Objects.equals(MarkProfiling(), "2.2")) {
-            gradeClassification = "2.2";
-        } else if (EqualAverage() >= 39.5 || WeightedAverage() >= 39.5 || Objects.equals(MarkProfiling(), "3")) {
-            gradeClassification = "3";
-        } else {
-            gradeClassification = "Fail";
+
+        ArrayList<Integer> grades5 = data5.getLevel5Grades();
+
+        grades5.removeIf(n -> n <= 0);
+
+        if (grades5.isEmpty()) {
+            if (Level6Average() >= 69.5 || Objects.equals(MarkProfiling(), "1")) {
+                gradeClassification = "1";
+                return gradeClassification;
+            } else if (Level6Average() >= 59.5 || Objects.equals(MarkProfiling(), "2.1")) {
+                gradeClassification = "2.1";
+                return gradeClassification;
+            } else if (Level6Average() >= 49.5 || Objects.equals(MarkProfiling(), "2.2")) {
+                gradeClassification = "2.2";
+                return gradeClassification;
+            } else if (Level6Average() >= 39.5 || Objects.equals(MarkProfiling(), "3")) {
+                gradeClassification = "3";
+                return gradeClassification;
+            } else {
+                gradeClassification = "Fail";
+                return gradeClassification;
+            }
+        }else {
+                if (EqualAverage() >= 69.5 || WeightedAverage() >= 69.5 || Objects.equals(MarkProfiling(), "1")) {
+                    gradeClassification = "1";
+                    return gradeClassification;
+                } else if (EqualAverage() >= 59.5 || WeightedAverage() >= 59.5 || Objects.equals(MarkProfiling(), "2.1")) {
+                    gradeClassification = "2.1";
+                    return gradeClassification;
+                } else if (EqualAverage() >= 49.5 || WeightedAverage() >= 49.5 || Objects.equals(MarkProfiling(), "2.2")) {
+                    gradeClassification = "2.2";
+                    return gradeClassification;
+                } else if (EqualAverage() >= 39.5 || WeightedAverage() >= 39.5 || Objects.equals(MarkProfiling(), "3")) {
+                    gradeClassification = "3";
+                    return gradeClassification;
+                } else {
+                    gradeClassification = "Fail";
+                    return gradeClassification;
+                }
         }
-        return gradeClassification;
+
     }
 }
+
 

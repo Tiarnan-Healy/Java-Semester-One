@@ -380,14 +380,4 @@ public class AverageCalculationsTest {
 
 
     AverageCalculations testCalculationA = new AverageCalculations(test5A(), test6A());
-//        // double evenResult = testCalculationA.EqualAverage();
-//        // String.format("%.2f", evenResult);
-//        // double weightedResult = testCalculationA.WeightedAverage();
-//        // String.format("%.2f", weightedResult);
-//        // String markProfilingResult = testCalculationA.MarkProfiling();
-//
-//        Assertions.assertEquals("70.17", String.format("%.2f", evenResult)); // Comparing as strings for sake of ease
-//        Assertions.assertEquals("68.44", String.format("%.2f", weightedResult));
-//        Assertions.assertEquals("2.1", markProfilingResult);
-//    }
 }
