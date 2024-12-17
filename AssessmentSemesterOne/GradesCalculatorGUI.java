@@ -222,6 +222,7 @@ public class GradesCalculatorGUI extends JFrame {
 
     // Using document listener to give input warnings in real time
     public void resultsVerification(JTextField tf) {
+        // Got rid of dialog box as it was too annoying
         tf.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -238,19 +239,20 @@ public class GradesCalculatorGUI extends JFrame {
                 validateInput();
             }
 
+            // Using colors to indicate valid input
             public void validateInput() {
                 String text = tf.getText();
-
                 int result = Integer.parseInt(text);
-
-                if (result > 100 || result < 40) {
-                    JOptionPane.showMessageDialog(null, "Result must be 40-100", "Error Message", JOptionPane.ERROR_MESSAGE);
+                if (result <= 100 || result >= 40) {
+                    tf.setBackground(Color.GREEN);
+                } else if (result > 100 || result < 40) {
+                    tf.setBackground(Color.PINK);
                 }
             }
         });
     }
 
-    // Tried to write a function to apply resultsVerification but I can't get it to work
+    // Tried to write a function to apply resultsVerification, but I can't get it to work
 //    public void applyResultsVerification() {
 //        JTextField result = new JTextField();
 //        for (int i = 5; i <= 6; i++) {
