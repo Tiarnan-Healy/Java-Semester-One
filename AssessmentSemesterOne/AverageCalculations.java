@@ -13,50 +13,18 @@ public class AverageCalculations {
         this.data6 = data6;
     }
 
-    public double Level5Average() {
+    public double LevelAverage(ArrayList<Integer> gradesList, ArrayList<Integer> creditsList) {
         double averageGrade = 0;
         double totalCredits = 0;
-        int totalGrade = 0;
         double proportionalGrade = 0;
 
-        ArrayList<Integer> grades5 = data5.getLevel5Grades();
-        ArrayList<Integer> credits5 = data5.getLevel5Credits();
 
-        // cleaning up bad inputs
-        grades5.removeIf(n -> n <= 0);
-        credits5.removeIf(n -> n <= 0);
+        gradesList.removeIf(n -> n <= 0);
+        creditsList.removeIf(n -> n <= 0);
 
-        // multiply credits by grades to apportion weighting
-        // will then divide by the sum of the credits earned for a percentage figure
-        for (int i = 0; i < grades5.size(); i++) {
-            totalGrade += grades5.get(i);
-            totalCredits += credits5.get(i);
-            proportionalGrade += grades5.get(i) * credits5.get(i);
-        }
-
-        // assign credit portions
-
-        averageGrade = proportionalGrade / totalCredits;
-
-        return averageGrade;
-    }
-
-    public double Level6Average() {
-        double averageGrade = 0;
-        double totalCredits = 0;
-        int totalGrade = 0;
-        double proportionalGrade = 0;
-
-        ArrayList<Integer> grades6 = data6.getLevel6Grades();
-        ArrayList<Integer> credits6 = data6.getLevel6Credits();
-
-        grades6.removeIf(n -> n <= 0);
-        credits6.removeIf(n -> n <= 0);
-
-        for (int i = 0; i < grades6.size(); i++) {
-            totalGrade += grades6.get(i);
-            totalCredits += credits6.get(i);
-            proportionalGrade += grades6.get(i) * credits6.get(i);
+        for (int i = 0; i < gradesList.size(); i++) {
+            totalCredits += creditsList.get(i);
+            proportionalGrade += gradesList.get(i) * creditsList.get(i);
         }
 
         averageGrade = proportionalGrade / totalCredits;
@@ -64,12 +32,12 @@ public class AverageCalculations {
         return averageGrade;
     }
 
-    public double EqualAverage() {
-        return (Level5Average() + Level6Average()) / 2;
+    public double EqualAverage(ArrayList<Integer> gradesList5, ArrayList<Integer> creditsList5, ArrayList<Integer> gradesList6, ArrayList<Integer> creditsList6) {
+        return (LevelAverage(gradesList5, creditsList5) + LevelAverage(gradesList6, creditsList6)) / 2;
     }
 
-    public double WeightedAverage() {
-        return (Level5Average() + Level6Average() + Level6Average()) / 3;
+    public double WeightedAverage(ArrayList<Integer> gradesList5, ArrayList<Integer> creditsList5, ArrayList<Integer> gradesList6, ArrayList<Integer> creditsList6) {
+        return (LevelAverage(gradesList5, creditsList5) + LevelAverage(gradesList6, creditsList6) + LevelAverage(gradesList6, creditsList6)) / 3;
     }
 
     // I've decided not to write this in a separate file to keep things neater.
@@ -149,24 +117,26 @@ public class AverageCalculations {
         return gradeClassification;
     }
 
-    public String overallClassification() {
+    public String overallClassification(ArrayList<Integer> gradesList5, ArrayList<Integer> creditsList5, ArrayList<Integer> gradesList6, ArrayList<Integer> creditsList6) {
         String gradeClassification = "";
 
-        ArrayList<Integer> grades5 = data5.getLevel5Grades();
+        double level6Average = LevelAverage(gradesList6, creditsList6);
+        double equalAverage = EqualAverage(gradesList5, creditsList5, gradesList6, creditsList6);
+        double weightedAverage = WeightedAverage(gradesList5, creditsList5, gradesList6, creditsList6);
 
-        grades5.removeIf(n -> n <= 0);
+        gradesList5.removeIf(n -> n <= 0);
 
-        if (grades5.isEmpty()) {
-            if (Level6Average() >= 69.5 || Objects.equals(MarkProfiling(), "1")) {
+        if (gradesList5.isEmpty()) {
+            if (level6Average >= 69.5 || Objects.equals(MarkProfiling(), "1")) {
                 gradeClassification = "1";
                 return gradeClassification;
-            } else if (Level6Average() >= 59.5 || Objects.equals(MarkProfiling(), "2.1")) {
+            } else if (level6Average >= 59.5 || Objects.equals(MarkProfiling(), "2.1")) {
                 gradeClassification = "2.1";
                 return gradeClassification;
-            } else if (Level6Average() >= 49.5 || Objects.equals(MarkProfiling(), "2.2")) {
+            } else if (level6Average >= 49.5 || Objects.equals(MarkProfiling(), "2.2")) {
                 gradeClassification = "2.2";
                 return gradeClassification;
-            } else if (Level6Average() >= 39.5 || Objects.equals(MarkProfiling(), "3")) {
+            } else if (level6Average >= 39.5 || Objects.equals(MarkProfiling(), "3")) {
                 gradeClassification = "3";
                 return gradeClassification;
             } else {
@@ -174,16 +144,16 @@ public class AverageCalculations {
                 return gradeClassification;
             }
         }else {
-                if (EqualAverage() >= 69.5 || WeightedAverage() >= 69.5 || Objects.equals(MarkProfiling(), "1")) {
+                if (equalAverage >= 69.5 || weightedAverage >= 69.5 || Objects.equals(MarkProfiling(), "1")) {
                     gradeClassification = "1";
                     return gradeClassification;
-                } else if (EqualAverage() >= 59.5 || WeightedAverage() >= 59.5 || Objects.equals(MarkProfiling(), "2.1")) {
+                } else if (equalAverage >= 59.5 || weightedAverage >= 59.5 || Objects.equals(MarkProfiling(), "2.1")) {
                     gradeClassification = "2.1";
                     return gradeClassification;
-                } else if (EqualAverage() >= 49.5 || WeightedAverage() >= 49.5 || Objects.equals(MarkProfiling(), "2.2")) {
+                } else if (equalAverage >= 49.5 || weightedAverage >= 49.5 || Objects.equals(MarkProfiling(), "2.2")) {
                     gradeClassification = "2.2";
                     return gradeClassification;
-                } else if (EqualAverage() >= 39.5 || WeightedAverage() >= 39.5 || Objects.equals(MarkProfiling(), "3")) {
+                } else if (equalAverage >= 39.5 || weightedAverage >= 39.5 || Objects.equals(MarkProfiling(), "3")) {
                     gradeClassification = "3";
                     return gradeClassification;
                 } else {
