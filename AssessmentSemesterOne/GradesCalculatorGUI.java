@@ -80,6 +80,8 @@ public class GradesCalculatorGUI extends JFrame {
     private JTextField module6TextField7;
     private JTextField module6TextField8;
     private JCheckBox advancedEntryCheckBox;
+    private JTextField level5CreditTotalTextField;
+    private JTextField level6CreditTotalTextField;
 
     public Level5Data level5Data = new Level5Data();
     public Level6Data level6Data = new Level6Data();
@@ -106,6 +108,23 @@ public class GradesCalculatorGUI extends JFrame {
         resultsVerification(level6Grade7);
         resultsVerification(level6Grade8);
 
+        CreditsVerification.creditsVerification(level5Credits1, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification(level5Credits2, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification(level5Credits3, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification(level5Credits4, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification(level5Credits5, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification(level5Credits6, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification(level5Credits7, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification(level5Credits8, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification(level6Credits1, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification(level6Credits2, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification(level6Credits3, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification(level6Credits4, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification(level6Credits5, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification(level6Credits6, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification(level6Credits7, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification(level6Credits8, level6CreditTotalTextField);
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
@@ -121,7 +140,6 @@ public class GradesCalculatorGUI extends JFrame {
 
 
     }
-
 
     // Adding input from user to ArrayLists
     // Collecting all data. Will initialise all relevant input fields to 0, so I get no null data.
@@ -180,7 +198,7 @@ public class GradesCalculatorGUI extends JFrame {
     // Setting input to 0 with a try catch instead of defaulting all values to 0
     // Credit values of 0 will be discarded from the average calculations
     // I will try to alter things later to account for numbers over 100 and non integers.
-    public int numberToParse(JTextField textField) {
+    public static int numberToParse(JTextField textField) {
         String text = textField.getText();
         try {
             return Integer.parseInt(text);
@@ -192,22 +210,22 @@ public class GradesCalculatorGUI extends JFrame {
 
     public void showResults() {
         try {
-        // Call the calculations with user data
-        double level5Average = averageCalculations.Level5Average();
-        level5AverageTextField.setText(formatResult(level5Average));
-        double level6Average = averageCalculations.Level6Average();
-        level6AverageTextField.setText(formatResult(level6Average));
-        double equalAverage = averageCalculations.EqualAverage();
-        evenWeightingTextField.setText(formatResult(equalAverage));
-        double weightedAverage = averageCalculations.WeightedAverage();
-        weightedTextField.setText(formatResult(weightedAverage));
-        String markProfiling = averageCalculations.MarkProfiling();
-        markProfilingTextField.setText(String.format(markProfiling));
-        String overallAward = averageCalculations.overallClassification();
-        overallAwardTextField.setText(String.format(overallAward));
+            // Call the calculations with user data
+            double level5Average = averageCalculations.Level5Average();
+            level5AverageTextField.setText(formatResult(level5Average));
+            double level6Average = averageCalculations.Level6Average();
+            level6AverageTextField.setText(formatResult(level6Average));
+            double equalAverage = averageCalculations.EqualAverage();
+            evenWeightingTextField.setText(formatResult(equalAverage));
+            double weightedAverage = averageCalculations.WeightedAverage();
+            weightedTextField.setText(formatResult(weightedAverage));
+            String markProfiling = averageCalculations.MarkProfiling();
+            markProfilingTextField.setText(String.format(markProfiling));
+            String overallAward = averageCalculations.overallClassification();
+            overallAwardTextField.setText(String.format(overallAward));
         } catch (Exception e) {
             System.out.println(e);
-            }
+        }
 
     }
 
@@ -519,7 +537,7 @@ public class GradesCalculatorGUI extends JFrame {
         markProfilingLabel.setText("Mark Profiling");
         panel13.add(markProfilingLabel, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel14 = new JPanel();
-        panel14.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel14.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
         mainPanel.add(panel14, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         level5AverageLabel = new JLabel();
         level5AverageLabel.setText("Level 5 Average");
@@ -527,8 +545,14 @@ public class GradesCalculatorGUI extends JFrame {
         level5AverageTextField = new JTextField();
         level5AverageTextField.setEditable(false);
         panel14.add(level5AverageTextField, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
+        final JLabel label15 = new JLabel();
+        label15.setText("Credits");
+        panel14.add(label15, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        level5CreditTotalTextField = new JTextField();
+        level5CreditTotalTextField.setEditable(false);
+        panel14.add(level5CreditTotalTextField, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         final JPanel panel15 = new JPanel();
-        panel15.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel15.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
         mainPanel.add(panel15, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         level6AverageLabel = new JLabel();
         level6AverageLabel.setText("Level 6 Average");
@@ -536,6 +560,12 @@ public class GradesCalculatorGUI extends JFrame {
         level6AverageTextField = new JTextField();
         level6AverageTextField.setEditable(false);
         panel15.add(level6AverageTextField, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
+        final JLabel label16 = new JLabel();
+        label16.setText("Credits");
+        panel15.add(label16, new com.intellij.uiDesigner.core.GridConstraints(0, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        level6CreditTotalTextField = new JTextField();
+        level6CreditTotalTextField.setEditable(false);
+        panel15.add(level6CreditTotalTextField, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(50, -1), null, 0, false));
     }
 
     /**
