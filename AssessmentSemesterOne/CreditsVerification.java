@@ -15,7 +15,7 @@ public class CreditsVerification {
             public void focusGained(FocusEvent e) {
                 // When making a change this eliminates the old value
                 if (!tf.getText().isEmpty()) {
-                    total -= GradesCalculatorGUI.numberToParse(tf);
+                    total -= GradesCalculatorGUI.creditParse(tf);
                 }
             }
 
@@ -26,7 +26,7 @@ public class CreditsVerification {
 
             // add credits and show to user it needs to be 120
             public void validateInput() {
-                total += GradesCalculatorGUI.numberToParse(tf);
+                total += GradesCalculatorGUI.creditParse(tf);
 
                 tfTotal.setText(total + "/120");
                 if (total < 120) {
