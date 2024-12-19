@@ -115,6 +115,64 @@ public class GradesCalculatorGUI extends JFrame {
         clearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                level5Credits1.setText(null);
+                level5Credits2.setText(null);
+                level5Credits3.setText(null);
+                level5Credits4.setText(null);
+                level5Credits5.setText(null);
+                level5Credits6.setText(null);
+                level5Credits7.setText(null);
+                level5Credits8.setText(null);
+                level5Grade1.setValue(40);
+                level5Grade2.setValue(40);
+                level5Grade3.setValue(40);
+                level5Grade4.setValue(40);
+                level5Grade5.setValue(40);
+                level5Grade6.setValue(40);
+                level5Grade7.setValue(40);
+                level5Grade8.setValue(40);
+                module5TextField1.setText(null);
+                module5TextField2.setText(null);
+                module5TextField3.setText(null);
+                module5TextField4.setText(null);
+                module5TextField5.setText(null);
+                module5TextField6.setText(null);
+                module5TextField7.setText(null);
+                module5TextField8.setText(null);
+                level5AverageTextField.setText(null);
+                level5CreditTotalTextField.setText(null);
+                level6Credits1.setText(null);
+                level6Credits2.setText(null);
+                level6Credits3.setText(null);
+                level6Credits4.setText(null);
+                level6Credits5.setText(null);
+                level6Credits6.setText(null);
+                level6Credits7.setText(null);
+                level6Credits8.setText(null);
+                level6Grade1.setValue(40);
+                level6Grade2.setValue(40);
+                level6Grade3.setValue(40);
+                level6Grade4.setValue(40);
+                level6Grade5.setValue(40);
+                level6Grade6.setValue(40);
+                level6Grade7.setValue(40);
+                level6Grade8.setValue(40);
+                module6TextField1.setText(null);
+                module6TextField2.setText(null);
+                module6TextField3.setText(null);
+                module6TextField4.setText(null);
+                module6TextField5.setText(null);
+                module6TextField6.setText(null);
+                module6TextField7.setText(null);
+                module6TextField8.setText(null);
+                level6AverageTextField.setText(null);
+                level6CreditTotalTextField.setText(null);
+                level5CreditTotalTextField.setBackground(Color.WHITE);
+                level6CreditTotalTextField.setBackground(Color.WHITE);
+                weightedTextField.setText(null);
+                evenWeightingTextField.setText(null);
+                overallAwardTextField.setText(null);
+                markProfilingTextField.setText(null);
 
             }
         });
@@ -156,6 +214,7 @@ public class GradesCalculatorGUI extends JFrame {
                     module5TextField6.setEnabled(false);
                     module5TextField7.setEnabled(false);
                     module5TextField8.setEnabled(false);
+                    level5CreditTotalTextField.setBackground(Color.WHITE);
                 } else if (e.getStateChange() == ItemEvent.DESELECTED) {
                     level5Credits1.setEnabled(true);
                     level5Credits2.setEnabled(true);
@@ -570,6 +629,7 @@ public class GradesCalculatorGUI extends JFrame {
         gradeCalculationLabel.setText("Grade Calculation");
         gradeCalculationPanel.add(gradeCalculationLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         calculateButton = new JButton();
+        calculateButton.setFocusable(false);
         calculateButton.setText("Calculate");
         gradeCalculationPanel.add(calculateButton, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel12 = new JPanel();
@@ -634,10 +694,12 @@ public class GradesCalculatorGUI extends JFrame {
         level6CreditTotalTextField.setEditable(false);
         panel15.add(level6CreditTotalTextField, new com.intellij.uiDesigner.core.GridConstraints(0, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(50, -1), null, 0, false));
         clearButton = new JButton();
+        clearButton.setFocusable(false);
         clearButton.setForeground(new Color(-9742107));
         clearButton.setText("Clear");
         mainPanel.add(clearButton, new com.intellij.uiDesigner.core.GridConstraints(6, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         quitButton = new JButton();
+        quitButton.setFocusable(false);
         quitButton.setForeground(new Color(-1761478));
         quitButton.setText("Quit");
         mainPanel.add(quitButton, new com.intellij.uiDesigner.core.GridConstraints(6, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
