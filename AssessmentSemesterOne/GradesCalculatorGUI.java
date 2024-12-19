@@ -191,6 +191,37 @@ public class GradesCalculatorGUI extends JFrame {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
+                    // Clear relevant information first
+                    level5Credits1.setText(null);
+                    level5Credits2.setText(null);
+                    level5Credits3.setText(null);
+                    level5Credits4.setText(null);
+                    level5Credits5.setText(null);
+                    level5Credits6.setText(null);
+                    level5Credits7.setText(null);
+                    level5Credits8.setText(null);
+                    level5Grade1.setValue(40);
+                    level5Grade2.setValue(40);
+                    level5Grade3.setValue(40);
+                    level5Grade4.setValue(40);
+                    level5Grade5.setValue(40);
+                    level5Grade6.setValue(40);
+                    level5Grade7.setValue(40);
+                    level5Grade8.setValue(40);
+                    module5TextField1.setText(null);
+                    module5TextField2.setText(null);
+                    module5TextField3.setText(null);
+                    module5TextField4.setText(null);
+                    module5TextField5.setText(null);
+                    module5TextField6.setText(null);
+                    module5TextField7.setText(null);
+                    module5TextField8.setText(null);
+                    level5AverageTextField.setText(null);
+                    level5CreditTotalTextField.setText(null);
+                    Level5Data.Level5Grades.clear();
+                    Level5Data.Level5Credits.clear();
+
+                    // Set Level 5 elements to disabled
                     level5Credits1.setEnabled(false);
                     level5Credits2.setEnabled(false);
                     level5Credits3.setEnabled(false);
