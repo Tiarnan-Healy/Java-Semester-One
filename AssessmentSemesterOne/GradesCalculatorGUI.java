@@ -6,6 +6,8 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 public class GradesCalculatorGUI extends JFrame {
     // Automatically populated from drag and drop on the .form file
@@ -94,22 +96,8 @@ public class GradesCalculatorGUI extends JFrame {
 
         // Credits input validation
         $$$setupUI$$$();
-        CreditsVerification.creditsVerification(level5Credits1, level5CreditTotalTextField);
-        CreditsVerification.creditsVerification(level5Credits2, level5CreditTotalTextField);
-        CreditsVerification.creditsVerification(level5Credits3, level5CreditTotalTextField);
-        CreditsVerification.creditsVerification(level5Credits4, level5CreditTotalTextField);
-        CreditsVerification.creditsVerification(level5Credits5, level5CreditTotalTextField);
-        CreditsVerification.creditsVerification(level5Credits6, level5CreditTotalTextField);
-        CreditsVerification.creditsVerification(level5Credits7, level5CreditTotalTextField);
-        CreditsVerification.creditsVerification(level5Credits8, level5CreditTotalTextField);
-        CreditsVerification.creditsVerification(level6Credits1, level6CreditTotalTextField);
-        CreditsVerification.creditsVerification(level6Credits2, level6CreditTotalTextField);
-        CreditsVerification.creditsVerification(level6Credits3, level6CreditTotalTextField);
-        CreditsVerification.creditsVerification(level6Credits4, level6CreditTotalTextField);
-        CreditsVerification.creditsVerification(level6Credits5, level6CreditTotalTextField);
-        CreditsVerification.creditsVerification(level6Credits6, level6CreditTotalTextField);
-        CreditsVerification.creditsVerification(level6Credits7, level6CreditTotalTextField);
-        CreditsVerification.creditsVerification(level6Credits8, level6CreditTotalTextField);
+
+        CreditsVerify();
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
@@ -131,6 +119,7 @@ public class GradesCalculatorGUI extends JFrame {
             }
         });
 
+
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -139,6 +128,62 @@ public class GradesCalculatorGUI extends JFrame {
         });
 
 
+        advancedEntryCheckBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    level5Credits1.setEnabled(false);
+                    level5Credits2.setEnabled(false);
+                    level5Credits3.setEnabled(false);
+                    level5Credits4.setEnabled(false);
+                    level5Credits5.setEnabled(false);
+                    level5Credits6.setEnabled(false);
+                    level5Credits7.setEnabled(false);
+                    level5Credits8.setEnabled(false);
+                    level5Grade1.setEnabled(false);
+                    level5Grade2.setEnabled(false);
+                    level5Grade3.setEnabled(false);
+                    level5Grade4.setEnabled(false);
+                    level5Grade5.setEnabled(false);
+                    level5Grade6.setEnabled(false);
+                    level5Grade7.setEnabled(false);
+                    level5Grade8.setEnabled(false);
+                    module5TextField1.setEnabled(false);
+                    module5TextField2.setEnabled(false);
+                    module5TextField3.setEnabled(false);
+                    module5TextField4.setEnabled(false);
+                    module5TextField5.setEnabled(false);
+                    module5TextField6.setEnabled(false);
+                    module5TextField7.setEnabled(false);
+                    module5TextField8.setEnabled(false);
+                } else if (e.getStateChange() == ItemEvent.DESELECTED) {
+                    level5Credits1.setEnabled(true);
+                    level5Credits2.setEnabled(true);
+                    level5Credits3.setEnabled(true);
+                    level5Credits4.setEnabled(true);
+                    level5Credits5.setEnabled(true);
+                    level5Credits6.setEnabled(true);
+                    level5Credits7.setEnabled(true);
+                    level5Credits8.setEnabled(true);
+                    level5Grade1.setEnabled(true);
+                    level5Grade2.setEnabled(true);
+                    level5Grade3.setEnabled(true);
+                    level5Grade4.setEnabled(true);
+                    level5Grade5.setEnabled(true);
+                    level5Grade6.setEnabled(true);
+                    level5Grade7.setEnabled(true);
+                    level5Grade8.setEnabled(true);
+                    module5TextField1.setEnabled(true);
+                    module5TextField2.setEnabled(true);
+                    module5TextField3.setEnabled(true);
+                    module5TextField4.setEnabled(true);
+                    module5TextField5.setEnabled(true);
+                    module5TextField6.setEnabled(true);
+                    module5TextField7.setEnabled(true);
+                    module5TextField8.setEnabled(true);
+                }
+            }
+        });
     }
 
     // Adding input from user to ArrayLists
@@ -208,12 +253,47 @@ public class GradesCalculatorGUI extends JFrame {
         }
     }
 
+    public void CreditsVerify() {
+        CreditsVerification.creditsVerification5(level5Credits1, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification5(level5Credits2, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification5(level5Credits3, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification5(level5Credits4, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification5(level5Credits5, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification5(level5Credits6, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification5(level5Credits7, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification5(level5Credits8, level5CreditTotalTextField);
+        CreditsVerification.creditsVerification6(level6Credits1, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification6(level6Credits2, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification6(level6Credits3, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification6(level6Credits4, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification6(level6Credits5, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification6(level6Credits6, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification6(level6Credits7, level6CreditTotalTextField);
+        CreditsVerification.creditsVerification6(level6Credits8, level6CreditTotalTextField);
+
+    }
+
     public static int gradeParse(JSpinner spinner) {
         int grade = (Integer) spinner.getValue(); // https://stackoverflow.com/questions/15400781/how-to-get-int-value-from-spinner
         return grade;
     }
 
     public void showResults() {
+        // delete empty entries
+        Level5Data.Level5Credits.removeIf(n -> n < 1);
+        Level6Data.Level6Credits.removeIf(n -> n < 1);
+
+        int limit5 = Level5Data.Level5Credits.size();
+        for (int i = limit5; i < 8; i++) {
+            Level5Data.Level5Grades.removeLast();
+        }
+
+        int limit6 = Level6Data.Level6Credits.size();
+        for (int i = limit6; i < 8; i++) {
+            Level6Data.Level6Grades.removeLast();
+        }
+
+
         try {
             // Call the calculations with user data
             double level5Average = averageCalculations.LevelAverage(Level5Data.Level5Grades, Level5Data.Level5Credits);
@@ -304,6 +384,7 @@ public class GradesCalculatorGUI extends JFrame {
         createUIComponents();
         mainPanel = new JPanel();
         mainPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(7, 2, new Insets(5, 5, 5, 5), -1, -1));
+        mainPanel.setEnabled(false);
         mainPanel.setForeground(new Color(-1741197));
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 3, new Insets(0, 0, 0, 0), -1, -1));
@@ -330,6 +411,7 @@ public class GradesCalculatorGUI extends JFrame {
         panel4.add(courseComboBox, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel5 = new JPanel();
         panel5.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 3, new Insets(0, 0, 0, 0), -1, -1));
+        panel5.setEnabled(false);
         mainPanel.add(panel5, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         level5ResultsPanel = new JPanel();
         level5ResultsPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
@@ -373,11 +455,13 @@ public class GradesCalculatorGUI extends JFrame {
         final JPanel panel7 = new JPanel();
         panel7.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(5, 3, new Insets(0, 0, 0, 0), -1, -1));
         panel5.add(panel7, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        level5Grade1.setEnabled(true);
         panel7.add(level5Grade1, new com.intellij.uiDesigner.core.GridConstraints(1, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         panel7.add(level5Grade2, new com.intellij.uiDesigner.core.GridConstraints(2, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         panel7.add(level5Grade3, new com.intellij.uiDesigner.core.GridConstraints(3, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         panel7.add(level5Grade4, new com.intellij.uiDesigner.core.GridConstraints(4, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         level5Credits1 = new JTextField();
+        level5Credits1.setEnabled(true);
         panel7.add(level5Credits1, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         level5Credits2 = new JTextField();
         panel7.add(level5Credits2, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
@@ -395,6 +479,7 @@ public class GradesCalculatorGUI extends JFrame {
         label7.setText("Module");
         panel7.add(label7, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         module5TextField1 = new JTextField();
+        module5TextField1.setEnabled(true);
         panel7.add(module5TextField1, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         module5TextField2 = new JTextField();
         panel7.add(module5TextField2, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
@@ -566,22 +651,37 @@ public class GradesCalculatorGUI extends JFrame {
     }
 
     private void createUIComponents() {
-        SpinnerNumberModel gradesLimit = new SpinnerNumberModel(40, 40, 100, 1);
-        level5Grade1 = new JSpinner(gradesLimit);
-        level5Grade2 = new JSpinner(gradesLimit);
-        level5Grade3 = new JSpinner(gradesLimit);
-        level5Grade4 = new JSpinner(gradesLimit);
-        level5Grade5 = new JSpinner(gradesLimit);
-        level5Grade6 = new JSpinner(gradesLimit);
-        level5Grade7 = new JSpinner(gradesLimit);
-        level5Grade8 = new JSpinner(gradesLimit);
-        level6Grade1 = new JSpinner(gradesLimit);
-        level6Grade2 = new JSpinner(gradesLimit);
-        level6Grade3 = new JSpinner(gradesLimit);
-        level6Grade4 = new JSpinner(gradesLimit);
-        level6Grade5 = new JSpinner(gradesLimit);
-        level6Grade6 = new JSpinner(gradesLimit);
-        level6Grade7 = new JSpinner(gradesLimit);
-        level6Grade8 = new JSpinner(gradesLimit);
+        SpinnerNumberModel gradesLimit5_1 = new SpinnerNumberModel(40, 40, 100, 1);
+        level5Grade1 = new JSpinner(gradesLimit5_1);
+        SpinnerNumberModel gradesLimit5_2 = new SpinnerNumberModel(40, 40, 100, 1);
+        level5Grade2 = new JSpinner(gradesLimit5_2);
+        SpinnerNumberModel gradesLimit5_3 = new SpinnerNumberModel(40, 40, 100, 1);
+        level5Grade3 = new JSpinner(gradesLimit5_3);
+        SpinnerNumberModel gradesLimit5_4 = new SpinnerNumberModel(40, 40, 100, 1);
+        level5Grade4 = new JSpinner(gradesLimit5_4);
+        SpinnerNumberModel gradesLimit5_5 = new SpinnerNumberModel(40, 40, 100, 1);
+        level5Grade5 = new JSpinner(gradesLimit5_5);
+        SpinnerNumberModel gradesLimit5_6 = new SpinnerNumberModel(40, 40, 100, 1);
+        level5Grade6 = new JSpinner(gradesLimit5_6);
+        SpinnerNumberModel gradesLimit5_7 = new SpinnerNumberModel(40, 40, 100, 1);
+        level5Grade7 = new JSpinner(gradesLimit5_7);
+        SpinnerNumberModel gradesLimit5_8 = new SpinnerNumberModel(40, 40, 100, 1);
+        level5Grade8 = new JSpinner(gradesLimit5_8);
+        SpinnerNumberModel gradesLimit6_1 = new SpinnerNumberModel(40, 40, 100, 1);
+        level6Grade1 = new JSpinner(gradesLimit6_1);
+        SpinnerNumberModel gradesLimit6_2 = new SpinnerNumberModel(40, 40, 100, 1);
+        level6Grade2 = new JSpinner(gradesLimit6_2);
+        SpinnerNumberModel gradesLimit6_3 = new SpinnerNumberModel(40, 40, 100, 1);
+        level6Grade3 = new JSpinner(gradesLimit6_3);
+        SpinnerNumberModel gradesLimit6_4 = new SpinnerNumberModel(40, 40, 100, 1);
+        level6Grade4 = new JSpinner(gradesLimit6_4);
+        SpinnerNumberModel gradesLimit6_5 = new SpinnerNumberModel(40, 40, 100, 1);
+        level6Grade5 = new JSpinner(gradesLimit6_5);
+        SpinnerNumberModel gradesLimit6_6 = new SpinnerNumberModel(40, 40, 100, 1);
+        level6Grade6 = new JSpinner(gradesLimit6_6);
+        SpinnerNumberModel gradesLimit6_7 = new SpinnerNumberModel(40, 40, 100, 1);
+        level6Grade7 = new JSpinner(gradesLimit6_7);
+        SpinnerNumberModel gradesLimit6_8 = new SpinnerNumberModel(40, 40, 100, 1);
+        level6Grade8 = new JSpinner(gradesLimit6_8);
     }
 }
