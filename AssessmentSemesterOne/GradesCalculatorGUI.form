@@ -34,6 +34,7 @@
                   </grid>
                 </constraints>
                 <properties>
+                  <editable value="false"/>
                   <text value="LTU Grades Calculator"/>
                 </properties>
               </component>
@@ -53,6 +54,7 @@
                 </constraints>
                 <properties>
                   <text value="Advanced Entry"/>
+                  <toolTipText value="Tick thos box if you did Level 6 ONLY"/>
                 </properties>
               </component>
             </children>
@@ -77,7 +79,16 @@
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <model>
+                    <item value="Select Course..."/>
+                    <item value="Business Management"/>
+                    <item value="Criminology"/>
+                    <item value="Film"/>
+                    <item value="N/A"/>
+                  </model>
+                  <toolTipText value="Please select from the list of courses"/>
+                </properties>
               </component>
             </children>
           </grid>
@@ -209,37 +220,117 @@
                   <text value="Module"/>
                 </properties>
               </component>
-              <component id="c9d2" class="javax.swing.JTextField" binding="module5TextField5">
+              <component id="504c1" class="javax.swing.JComboBox" binding="module5TextField5">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM5123"/>
+                    <item value="BMM5015"/>
+                    <item value="BMM5133"/>
+                    <item value="BMM5143"/>
+                    <item value="BMM5005"/>
+                    <item value="SOC5043"/>
+                    <item value="SOC5093"/>
+                    <item value="SOC5083"/>
+                    <item value="SOC5053"/>
+                    <item value="MFC5003"/>
+                    <item value="MFC5083"/>
+                    <item value="MFC5013"/>
+                    <item value="MFC5033"/>
+                    <item value="MFC5203"/>
+                    <item value="MFC5023"/>
+                  </model>
+                </properties>
               </component>
-              <component id="35e31" class="javax.swing.JTextField" binding="module5TextField6">
+              <component id="53478" class="javax.swing.JComboBox" binding="module5TextField6">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM5123"/>
+                    <item value="BMM5015"/>
+                    <item value="BMM5133"/>
+                    <item value="BMM5143"/>
+                    <item value="BMM5005"/>
+                    <item value="SOC5043"/>
+                    <item value="SOC5093"/>
+                    <item value="SOC5083"/>
+                    <item value="SOC5053"/>
+                    <item value="MFC5003"/>
+                    <item value="MFC5083"/>
+                    <item value="MFC5013"/>
+                    <item value="MFC5033"/>
+                    <item value="MFC5203"/>
+                    <item value="MFC5023"/>
+                  </model>
+                </properties>
               </component>
-              <component id="d59b8" class="javax.swing.JTextField" binding="module5TextField7">
+              <component id="5d559" class="javax.swing.JComboBox" binding="module5TextField7">
                 <constraints>
                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM5123"/>
+                    <item value="BMM5015"/>
+                    <item value="BMM5133"/>
+                    <item value="BMM5143"/>
+                    <item value="BMM5005"/>
+                    <item value="SOC5043"/>
+                    <item value="SOC5093"/>
+                    <item value="SOC5083"/>
+                    <item value="SOC5053"/>
+                    <item value="MFC5003"/>
+                    <item value="MFC5083"/>
+                    <item value="MFC5013"/>
+                    <item value="MFC5033"/>
+                    <item value="MFC5203"/>
+                    <item value="MFC5023"/>
+                  </model>
+                </properties>
               </component>
-              <component id="bde15" class="javax.swing.JTextField" binding="module5TextField8">
+              <component id="7cb2a" class="javax.swing.JComboBox" binding="module5TextField8">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM5123"/>
+                    <item value="BMM5015"/>
+                    <item value="BMM5133"/>
+                    <item value="BMM5143"/>
+                    <item value="BMM5005"/>
+                    <item value="SOC5043"/>
+                    <item value="SOC5093"/>
+                    <item value="SOC5083"/>
+                    <item value="SOC5053"/>
+                    <item value="MFC5003"/>
+                    <item value="MFC5083"/>
+                    <item value="MFC5013"/>
+                    <item value="MFC5033"/>
+                    <item value="MFC5203"/>
+                    <item value="MFC5023"/>
+                  </model>
+                </properties>
               </component>
             </children>
           </grid>
@@ -343,39 +434,118 @@
                   <text value="Module"/>
                 </properties>
               </component>
-              <component id="2d93c" class="javax.swing.JTextField" binding="module5TextField1">
+              <component id="c87ce" class="javax.swing.JComboBox" binding="module5TextField1">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
                 <properties>
+                  <editable value="true"/>
                   <enabled value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM5123"/>
+                    <item value="BMM5015"/>
+                    <item value="BMM5133"/>
+                    <item value="BMM5143"/>
+                    <item value="BMM5005"/>
+                    <item value="SOC5043"/>
+                    <item value="SOC5093"/>
+                    <item value="SOC5083"/>
+                    <item value="SOC5053"/>
+                    <item value="MFC5003"/>
+                    <item value="MFC5083"/>
+                    <item value="MFC5013"/>
+                    <item value="MFC5033"/>
+                    <item value="MFC5203"/>
+                    <item value="MFC5023"/>
+                  </model>
                 </properties>
               </component>
-              <component id="66fa7" class="javax.swing.JTextField" binding="module5TextField2">
+              <component id="f20c7" class="javax.swing.JComboBox" binding="module5TextField2">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM5123"/>
+                    <item value="BMM5015"/>
+                    <item value="BMM5133"/>
+                    <item value="BMM5143"/>
+                    <item value="BMM5005"/>
+                    <item value="SOC5043"/>
+                    <item value="SOC5093"/>
+                    <item value="SOC5083"/>
+                    <item value="SOC5053"/>
+                    <item value="MFC5003"/>
+                    <item value="MFC5083"/>
+                    <item value="MFC5013"/>
+                    <item value="MFC5033"/>
+                    <item value="MFC5203"/>
+                    <item value="MFC5023"/>
+                  </model>
+                </properties>
               </component>
-              <component id="c5650" class="javax.swing.JTextField" binding="module5TextField3">
+              <component id="8ce51" class="javax.swing.JComboBox" binding="module5TextField3">
                 <constraints>
                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM5123"/>
+                    <item value="BMM5015"/>
+                    <item value="BMM5133"/>
+                    <item value="BMM5143"/>
+                    <item value="BMM5005"/>
+                    <item value="SOC5043"/>
+                    <item value="SOC5093"/>
+                    <item value="SOC5083"/>
+                    <item value="SOC5053"/>
+                    <item value="MFC5003"/>
+                    <item value="MFC5083"/>
+                    <item value="MFC5013"/>
+                    <item value="MFC5033"/>
+                    <item value="MFC5203"/>
+                    <item value="MFC5023"/>
+                  </model>
+                </properties>
               </component>
-              <component id="45810" class="javax.swing.JTextField" binding="module5TextField4">
+              <component id="161bf" class="javax.swing.JComboBox" binding="module5TextField4">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM5123"/>
+                    <item value="BMM5015"/>
+                    <item value="BMM5133"/>
+                    <item value="BMM5143"/>
+                    <item value="BMM5005"/>
+                    <item value="SOC5043"/>
+                    <item value="SOC5093"/>
+                    <item value="SOC5083"/>
+                    <item value="SOC5053"/>
+                    <item value="MFC5003"/>
+                    <item value="MFC5083"/>
+                    <item value="MFC5013"/>
+                    <item value="MFC5033"/>
+                    <item value="MFC5203"/>
+                    <item value="MFC5023"/>
+                  </model>
+                </properties>
               </component>
             </children>
           </grid>
@@ -503,37 +673,165 @@
                   <text value="Module"/>
                 </properties>
               </component>
-              <component id="fd52a" class="javax.swing.JTextField" binding="module6TextField5">
+              <component id="44903" class="javax.swing.JComboBox" binding="module6TextField5">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM6542"/>
+                    <item value="BMM6582"/>
+                    <item value="BMM6422"/>
+                    <item value="BMM6552"/>
+                    <item value="BMM6452"/>
+                    <item value="BMM6402"/>
+                    <item value="BMM6482"/>
+                    <item value="SOC6302"/>
+                    <item value="SOC6502"/>
+                    <item value="SOC6045"/>
+                    <item value="SOC6015"/>
+                    <item value="SOC6033"/>
+                    <item value="SOC6053"/>
+                    <item value="SOC6063"/>
+                    <item value="SOC6073"/>
+                    <item value="SOC6025"/>
+                    <item value="SOC6035"/>
+                    <item value="SOC6055"/>
+                    <item value="MFC6013"/>
+                    <item value="MFC6003"/>
+                    <item value="MFC6403"/>
+                    <item value="MFC6043"/>
+                    <item value="MFC6033"/>
+                    <item value="MFC6193"/>
+                    <item value="MFC6005"/>
+                    <item value="MFC6015"/>
+                    <item value="MFC6035"/>
+                  </model>
+                </properties>
               </component>
-              <component id="cc2e2" class="javax.swing.JTextField" binding="module6TextField6">
+              <component id="9c8" class="javax.swing.JComboBox" binding="module6TextField6">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM6542"/>
+                    <item value="BMM6582"/>
+                    <item value="BMM6422"/>
+                    <item value="BMM6552"/>
+                    <item value="BMM6452"/>
+                    <item value="BMM6402"/>
+                    <item value="BMM6482"/>
+                    <item value="SOC6302"/>
+                    <item value="SOC6502"/>
+                    <item value="SOC6045"/>
+                    <item value="SOC6015"/>
+                    <item value="SOC6033"/>
+                    <item value="SOC6053"/>
+                    <item value="SOC6063"/>
+                    <item value="SOC6073"/>
+                    <item value="SOC6025"/>
+                    <item value="SOC6035"/>
+                    <item value="SOC6055"/>
+                    <item value="MFC6013"/>
+                    <item value="MFC6003"/>
+                    <item value="MFC6403"/>
+                    <item value="MFC6043"/>
+                    <item value="MFC6033"/>
+                    <item value="MFC6193"/>
+                    <item value="MFC6005"/>
+                    <item value="MFC6015"/>
+                    <item value="MFC6035"/>
+                  </model>
+                </properties>
               </component>
-              <component id="248f7" class="javax.swing.JTextField" binding="module6TextField7">
+              <component id="a5b95" class="javax.swing.JComboBox" binding="module6TextField7">
                 <constraints>
                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM6542"/>
+                    <item value="BMM6582"/>
+                    <item value="BMM6422"/>
+                    <item value="BMM6552"/>
+                    <item value="BMM6452"/>
+                    <item value="BMM6402"/>
+                    <item value="BMM6482"/>
+                    <item value="SOC6302"/>
+                    <item value="SOC6502"/>
+                    <item value="SOC6045"/>
+                    <item value="SOC6015"/>
+                    <item value="SOC6033"/>
+                    <item value="SOC6053"/>
+                    <item value="SOC6063"/>
+                    <item value="SOC6073"/>
+                    <item value="SOC6025"/>
+                    <item value="SOC6035"/>
+                    <item value="SOC6055"/>
+                    <item value="MFC6013"/>
+                    <item value="MFC6003"/>
+                    <item value="MFC6403"/>
+                    <item value="MFC6043"/>
+                    <item value="MFC6033"/>
+                    <item value="MFC6193"/>
+                    <item value="MFC6005"/>
+                    <item value="MFC6015"/>
+                    <item value="MFC6035"/>
+                  </model>
+                </properties>
               </component>
-              <component id="d46c7" class="javax.swing.JTextField" binding="module6TextField8">
+              <component id="a528d" class="javax.swing.JComboBox" binding="module6TextField8">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM6542"/>
+                    <item value="BMM6582"/>
+                    <item value="BMM6422"/>
+                    <item value="BMM6552"/>
+                    <item value="BMM6452"/>
+                    <item value="BMM6402"/>
+                    <item value="BMM6482"/>
+                    <item value="SOC6302"/>
+                    <item value="SOC6502"/>
+                    <item value="SOC6045"/>
+                    <item value="SOC6015"/>
+                    <item value="SOC6033"/>
+                    <item value="SOC6053"/>
+                    <item value="SOC6063"/>
+                    <item value="SOC6073"/>
+                    <item value="SOC6025"/>
+                    <item value="SOC6035"/>
+                    <item value="SOC6055"/>
+                    <item value="MFC6013"/>
+                    <item value="MFC6003"/>
+                    <item value="MFC6403"/>
+                    <item value="MFC6043"/>
+                    <item value="MFC6033"/>
+                    <item value="MFC6193"/>
+                    <item value="MFC6005"/>
+                    <item value="MFC6015"/>
+                    <item value="MFC6035"/>
+                  </model>
+                </properties>
               </component>
             </children>
           </grid>
@@ -633,37 +931,165 @@
                   <text value="Module"/>
                 </properties>
               </component>
-              <component id="ba7ed" class="javax.swing.JTextField" binding="module6TextField1">
+              <component id="38f37" class="javax.swing.JComboBox" binding="module6TextField1">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM6542"/>
+                    <item value="BMM6582"/>
+                    <item value="BMM6422"/>
+                    <item value="BMM6552"/>
+                    <item value="BMM6452"/>
+                    <item value="BMM6402"/>
+                    <item value="BMM6482"/>
+                    <item value="SOC6302"/>
+                    <item value="SOC6502"/>
+                    <item value="SOC6045"/>
+                    <item value="SOC6015"/>
+                    <item value="SOC6033"/>
+                    <item value="SOC6053"/>
+                    <item value="SOC6063"/>
+                    <item value="SOC6073"/>
+                    <item value="SOC6025"/>
+                    <item value="SOC6035"/>
+                    <item value="SOC6055"/>
+                    <item value="MFC6013"/>
+                    <item value="MFC6003"/>
+                    <item value="MFC6403"/>
+                    <item value="MFC6043"/>
+                    <item value="MFC6033"/>
+                    <item value="MFC6193"/>
+                    <item value="MFC6005"/>
+                    <item value="MFC6015"/>
+                    <item value="MFC6035"/>
+                  </model>
+                </properties>
               </component>
-              <component id="cd8d3" class="javax.swing.JTextField" binding="module6TextField2">
+              <component id="ca19" class="javax.swing.JComboBox" binding="module6TextField2">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM6542"/>
+                    <item value="BMM6582"/>
+                    <item value="BMM6422"/>
+                    <item value="BMM6552"/>
+                    <item value="BMM6452"/>
+                    <item value="BMM6402"/>
+                    <item value="BMM6482"/>
+                    <item value="SOC6302"/>
+                    <item value="SOC6502"/>
+                    <item value="SOC6045"/>
+                    <item value="SOC6015"/>
+                    <item value="SOC6033"/>
+                    <item value="SOC6053"/>
+                    <item value="SOC6063"/>
+                    <item value="SOC6073"/>
+                    <item value="SOC6025"/>
+                    <item value="SOC6035"/>
+                    <item value="SOC6055"/>
+                    <item value="MFC6013"/>
+                    <item value="MFC6003"/>
+                    <item value="MFC6403"/>
+                    <item value="MFC6043"/>
+                    <item value="MFC6033"/>
+                    <item value="MFC6193"/>
+                    <item value="MFC6005"/>
+                    <item value="MFC6015"/>
+                    <item value="MFC6035"/>
+                  </model>
+                </properties>
               </component>
-              <component id="dd70a" class="javax.swing.JTextField" binding="module6TextField3">
+              <component id="577cb" class="javax.swing.JComboBox" binding="module6TextField3">
                 <constraints>
                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM6542"/>
+                    <item value="BMM6582"/>
+                    <item value="BMM6422"/>
+                    <item value="BMM6552"/>
+                    <item value="BMM6452"/>
+                    <item value="BMM6402"/>
+                    <item value="BMM6482"/>
+                    <item value="SOC6302"/>
+                    <item value="SOC6502"/>
+                    <item value="SOC6045"/>
+                    <item value="SOC6015"/>
+                    <item value="SOC6033"/>
+                    <item value="SOC6053"/>
+                    <item value="SOC6063"/>
+                    <item value="SOC6073"/>
+                    <item value="SOC6025"/>
+                    <item value="SOC6035"/>
+                    <item value="SOC6055"/>
+                    <item value="MFC6013"/>
+                    <item value="MFC6003"/>
+                    <item value="MFC6403"/>
+                    <item value="MFC6043"/>
+                    <item value="MFC6033"/>
+                    <item value="MFC6193"/>
+                    <item value="MFC6005"/>
+                    <item value="MFC6015"/>
+                    <item value="MFC6035"/>
+                  </model>
+                </properties>
               </component>
-              <component id="b335c" class="javax.swing.JTextField" binding="module6TextField4">
+              <component id="ce5bd" class="javax.swing.JComboBox" binding="module6TextField4">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="50" height="-1"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <editable value="true"/>
+                  <model>
+                    <item value=""/>
+                    <item value="BMM6542"/>
+                    <item value="BMM6582"/>
+                    <item value="BMM6422"/>
+                    <item value="BMM6552"/>
+                    <item value="BMM6452"/>
+                    <item value="BMM6402"/>
+                    <item value="BMM6482"/>
+                    <item value="SOC6302"/>
+                    <item value="SOC6502"/>
+                    <item value="SOC6045"/>
+                    <item value="SOC6015"/>
+                    <item value="SOC6033"/>
+                    <item value="SOC6053"/>
+                    <item value="SOC6063"/>
+                    <item value="SOC6073"/>
+                    <item value="SOC6025"/>
+                    <item value="SOC6035"/>
+                    <item value="SOC6055"/>
+                    <item value="MFC6013"/>
+                    <item value="MFC6003"/>
+                    <item value="MFC6403"/>
+                    <item value="MFC6043"/>
+                    <item value="MFC6033"/>
+                    <item value="MFC6193"/>
+                    <item value="MFC6005"/>
+                    <item value="MFC6015"/>
+                    <item value="MFC6035"/>
+                  </model>
+                </properties>
               </component>
             </children>
           </grid>
@@ -738,7 +1164,9 @@
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <toolTipText value="Average of all marks awarded in Level 5 and 6"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="337c1" class="javax.swing.JTextField" binding="evenWeightingTextField">
@@ -775,6 +1203,7 @@
                 </constraints>
                 <properties>
                   <text value="Level 6 Weighted"/>
+                  <toolTipText value="Average of all marks awarded in Level 5 and 6, with a 2:1 weighting for Level 6"/>
                 </properties>
               </component>
               <component id="311cd" class="javax.swing.JTextField" binding="markProfilingTextField">
@@ -793,6 +1222,7 @@
                 </constraints>
                 <properties>
                   <text value="Mark Profiling"/>
+                  <toolTipText value="Mark profiling sums the credits achieved in each classification leavel (1, 2.1 etc). With a 2:1 weighting in favour of level 6, the credits are summed from highest classification to lowest. The lowest grade classification required to account for 50% of overall credits is the awarded classification. i.e. if 50%+ of credits are awarded at 1, then the mark profiling classification is 1."/>
                 </properties>
               </component>
               <component id="4bc45" class="javax.swing.JTextField" binding="advancedEntryTextField">
@@ -813,6 +1243,7 @@
                 <properties>
                   <enabled value="true"/>
                   <text value="Advanced Entry"/>
+                  <toolTipText value="Level 6 only average for students who did not do Level 5"/>
                 </properties>
               </component>
             </children>
@@ -921,6 +1352,7 @@
           <focusable value="false"/>
           <foreground color="-9742107"/>
           <text value="Clear"/>
+          <toolTipText value="Clear previously entered information"/>
         </properties>
       </component>
       <component id="9eb5c" class="javax.swing.JButton" binding="quitButton" default-binding="true">
