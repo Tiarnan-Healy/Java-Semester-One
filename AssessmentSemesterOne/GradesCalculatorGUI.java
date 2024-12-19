@@ -1,8 +1,6 @@
 package AssessmentSemesterOne;
 
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -86,6 +84,8 @@ public class GradesCalculatorGUI extends JFrame {
     private JTextField level6CreditTotalTextField;
     private JButton clearButton;
     private JButton quitButton;
+    private JTextField advancedEntryTextField;
+    private JLabel advancedEntryLabel;
 
     public Level5Data level5Data = new Level5Data();
     public Level6Data level6Data = new Level6Data();
@@ -171,6 +171,7 @@ public class GradesCalculatorGUI extends JFrame {
                 level6CreditTotalTextField.setBackground(Color.WHITE);
                 weightedTextField.setText(null);
                 evenWeightingTextField.setText(null);
+                advancedEntryTextField.setText(null);
                 overallAwardTextField.setText(null);
                 markProfilingTextField.setText(null);
 
@@ -214,6 +215,7 @@ public class GradesCalculatorGUI extends JFrame {
                     module5TextField6.setEnabled(false);
                     module5TextField7.setEnabled(false);
                     module5TextField8.setEnabled(false);
+                    advancedEntryTextField.setEnabled(true);
                     level5CreditTotalTextField.setBackground(Color.WHITE);
                 } else if (e.getStateChange() == ItemEvent.DESELECTED) {
                     level5Credits1.setEnabled(true);
@@ -240,6 +242,7 @@ public class GradesCalculatorGUI extends JFrame {
                     module5TextField6.setEnabled(true);
                     module5TextField7.setEnabled(true);
                     module5TextField8.setEnabled(true);
+                    advancedEntryTextField.setEnabled(false);
                 }
             }
         });
@@ -359,6 +362,19 @@ public class GradesCalculatorGUI extends JFrame {
             level5AverageTextField.setText(formatResult(level5Average));
             double level6Average = averageCalculations.LevelAverage(Level6Data.Level6Grades, Level6Data.Level6Credits);
             level6AverageTextField.setText(formatResult(level6Average));
+
+            // Also adding advanced entry result here
+            advancedEntryCheckBox.addItemListener(new ItemListener() {
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    if (e.getStateChange() == ItemEvent.SELECTED) {
+                        advancedEntryTextField.setText(formatResult(level6Average));
+                    } else if (e.getStateChange() == ItemEvent.DESELECTED) {
+                        advancedEntryTextField.setText("N/A");
+                    }
+                }
+            });
+
             double equalAverage = averageCalculations.EqualAverage(Level5Data.Level5Grades, Level5Data.Level5Credits, Level6Data.Level6Grades, Level6Data.Level6Credits);
             evenWeightingTextField.setText(formatResult(equalAverage));
             double weightedAverage = averageCalculations.WeightedAverage(Level5Data.Level5Grades, Level5Data.Level5Credits, Level6Data.Level6Grades, Level6Data.Level6Credits);
@@ -643,7 +659,7 @@ public class GradesCalculatorGUI extends JFrame {
         overallAwardTextField.setHorizontalAlignment(0);
         panel12.add(overallAwardTextField, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, -1), null, 0, false));
         final JPanel panel13 = new JPanel();
-        panel13.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(3, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel13.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(4, 2, new Insets(0, 0, 0, 0), -1, -1));
         panel11.add(panel13, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         evenWeightingTextField = new JTextField();
         evenWeightingTextField.setEditable(false);
@@ -652,17 +668,25 @@ public class GradesCalculatorGUI extends JFrame {
         weightedTextField.setEditable(false);
         panel13.add(weightedTextField, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         evenWeightingLabel = new JLabel();
-        evenWeightingLabel.setText("Even wieghting");
+        evenWeightingLabel.setText("Even Weighting");
         panel13.add(evenWeightingLabel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         weightedLabel = new JLabel();
-        weightedLabel.setText("Level 6 weighted");
+        weightedLabel.setText("Level 6 Weighted");
         panel13.add(weightedLabel, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         markProfilingTextField = new JTextField();
         markProfilingTextField.setEditable(false);
-        panel13.add(markProfilingTextField, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
+        panel13.add(markProfilingTextField, new com.intellij.uiDesigner.core.GridConstraints(3, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
         markProfilingLabel = new JLabel();
         markProfilingLabel.setText("Mark Profiling");
-        panel13.add(markProfilingLabel, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel13.add(markProfilingLabel, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        advancedEntryTextField = new JTextField();
+        advancedEntryTextField.setEditable(false);
+        advancedEntryTextField.setEnabled(false);
+        panel13.add(advancedEntryTextField, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(50, -1), null, 0, false));
+        advancedEntryLabel = new JLabel();
+        advancedEntryLabel.setEnabled(true);
+        advancedEntryLabel.setText("Advanced Entry");
+        panel13.add(advancedEntryLabel, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel14 = new JPanel();
         panel14.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
         mainPanel.add(panel14, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 2, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
